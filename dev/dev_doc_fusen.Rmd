@@ -1,0 +1,387 @@
+---
+title: "Dev Doc XlsFormPrettyPrint"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(testthat)
+```
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+# Data examples to demo the package
+
+<!-- 
+ Store your dataset in a directory named "inst/" at the root of your project.
+ Use it for your tests in this Rmd thanks to `pkgload::load_all()` to make it available
+and `system.file()` to read it in your examples.
+-->
+
+```{r development-2}
+# Run all this chunk in the console directly
+# Create "inst/" directory
+#dir.create(here::here("inst"))
+
+# Example dataset
+# Make your dataset file available to the current Rmd
+pkgload::load_all(path = here::here(), export_all = FALSE)
+
+# You will be able to read your example data file in each of your function examples and tests as follows
+xlsformpath <- system.file("demo.xlsx", package = "XlsFormPrettyPrint") 
+ 
+```
+
+
+
+# tabulate_form
+
+```{r function-tabulate_form}
+#' @title Combine the xlsform in single table for pretty printing
+#'
+#' @param xlsformpath
+#' 
+#' @return a single data frame
+#' @export
+#' 
+tabulate_form <- function(xlsformpath) {
+
+  survey <- readxl::read_excel(xlsformpath, sheet = "survey")
+  
+  choices <- readxl::read_excel(xlsformpath, sheet = "choices") 
+  
+  settings <- readxl::read_excel(xlsformpath,  sheet = "settings")
+  
+  modalities <- choices |>
+      ## Rename and use what ever label set is coming first 
+      dplyr::rename(labelmod = dplyr::first(tidyselect::starts_with("label")),
+                    namemod = name)  
+    
+  
+  
+  variables <-  survey |>
+      ## Rename and use what ever label set is coming first 
+      dplyr::rename(label = dplyr::first(tidyselect::starts_with("label")),
+                    hint = dplyr::first(tidyselect::starts_with("hint")),
+                    constraint_message = dplyr::first(tidyselect::starts_with("constraint_message"))) |>
+      
+      
+      # Clean the begin and end in case the _ would be missing...
+      dplyr::mutate(type = dplyr::recode(type, 
+                                          "begin group" = "begin_group" ,
+                                          "end group"   ="end_group",
+                                         "begin repeat" = "begin_repeat" ,
+                                         "end repeat"   ="end_repeat")) |>
+      
+      ## spearate the type
+      tidyr::separate(type, 
+                          into = c("type", "list_name"), 
+                          sep = " ",
+                          fill = "right")   |>
+      
+      # dplyr::mutate(name_type = glue::glue('{name} \n *(type: {type})')) |>
+      # dplyr::mutate(label_hint = glue::glue('{label} \n *(hint: {hint})')) |>
+      dplyr::mutate(name_type = paste0(name, "\n *(type: ",type, ")")) |>
+      dplyr::mutate(label_hint = paste0( 
+                                  dplyr::if_else(is.na(label), "no label", label),
+                                  dplyr::if_else(is.na(hint), "", 
+                                                 paste0("\n *(hint: ", hint, ")") 
+                                                 ) )) |>
+    
+    
+    ## Make the relevant expression more legible
+      ## Case relevant if not null...
+      dplyr::mutate(relevant = stringr::str_replace_all( relevant,
+                                                         pattern = "''",
+                                                         replacement = "NULL")) |>
+      dplyr::mutate(relevant = stringr::str_replace_all( relevant,
+                                                         pattern = "!=",
+                                                         replacement = " is not ")) |>
+      dplyr::mutate(relevant = dplyr::if_else(is.na(relevant), 
+                                       relevant, 
+                                       paste0(name, " is relevant if ", stringr::str_replace_all( relevant,
+                                                        # pattern = c( "(", "\\$", "{", "}", ")" ),
+                                                        pattern = "[^[:alnum:][:blank:]+?=_&/\\-]",
+                                                         replacement = "")) )) |>
+    
+    ## Make the constraint expression more legible
+     # dplyr::mutate(instruct = glue::glue('{relevant} \n *(constraint: {constraint_message})')) |>
+      dplyr::mutate(instruct = paste0( 
+                                  dplyr::if_else(is.na(relevant), "", relevant),
+                                  dplyr::if_else(is.na(constraint_message), "", 
+                                                 paste0("\n Constraint on ", name,": ", constraint_message, ")") 
+                                                 ) )) |>
+      
+    ## Need to add more cleaning in case...
+      dplyr::filter(!(is.na(type))) |>
+      dplyr::filter(type != "calculate") |>
+    
+    ## Now merge with modalities
+      dplyr::left_join(modalities, by = c("list_name")) |>
+      dplyr::select(name_type ,label_hint, labelmod, namemod,  instruct) |>
+      dplyr::distinct()
+    
+    return(variables)
+    
+}
+ 
+
+```
+
+```{r examples-tabulate_form}
+# tabulate_form()
+
+prettyform <- tabulate_form( xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint") )
+
+knitr::kable(utils::head(prettyform, 10))
+
+```
+
+```{r tests-tabulate_form}
+# test_that("skeleton works", {
+# 
+# })
+```
+
+
+
+# create_flextable
+
+```{r function-create_flextable}
+#' @title Generate a flextable from the pretty printed version of the xlsform
+#'
+#' @param xlsformpath
+#' 
+#' @return a flextable
+#' @export
+#'
+create_flextable <- function(xlsformpath) {
+  
+    variables <- tabulate_form(xlsformpath)
+      # create a flex table
+    ft <- flextable::flextable(variables) 
+    
+    #   ## Add theme
+    #ft <- pretty_theme(ft) 
+    ft <- flextable::colformat_double(ft, big.mark = "'", decimal.mark = ",", digits = 1)
+      
+    ft <- flextable::set_table_properties(ft, layout = "autofit")
+      
+     ft <- flextable::border_remove(ft)
+      
+     std_border <- officer::fp_border(width = 1, color = "grey")
+      
+     ft <- flextable::border_outer(ft , 
+                        part="all", 
+                        border = std_border )
+     ft <- flextable::border_inner_h(ft, 
+                          part="all", 
+                          border = std_border)
+     ft <- flextable::border_inner_v(ft, 
+                          part="all", 
+                          border = std_border)
+    
+    #  need to merge cells based on rules
+    ##  vertical merging of similar values to address merging with modalities when it's the case
+    ft <- flextable::merge_v(ft, j = c("name_type", "label_hint",  "instruct" ))
+    
+    
+    ## horizontal merging in case of beging_group - end_group - begin_repeat, end_repeat
+    
+    # ft <- merge_at(ft, 
+    #                  j = 2:4, 
+    #                  i = 3 ,
+    #                  part = "body")
+    
+    ## identify the line with group
+    lines_begin_group <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "begin_group" ) ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_begin_group) {
+      ft <- flextable::merge_at(ft, 
+                     i = lines, 
+                     j = 2:4, 
+                     part = "body")
+      ft <- flextable::bg(ft, 
+               bg = "#ffa630",
+               i =  lines,
+               part = "body")
+      
+     # ft <- bold(ft, i =  lines, part = "body")
+    }
+    
+    lines_end_group <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "end_group") ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_end_group) {
+      ft <- flextable::merge_at(ft,
+                     i = lines,
+                     j = 2:4,
+                     part = "body")
+      ft <- flextable::bg(ft, 
+               bg = "#ffa630",
+               i =  lines,
+               part = "body")
+    }
+    
+    
+    # with repeat
+    lines_begin_repeat <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "begin_repeat") ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_begin_repeat) {
+      ft <- flextable::merge_at(ft,
+                     i = lines,
+                     j = 2:4,
+                     part = "body")
+      ft <- flextable::bg(ft, 
+               bg = "#00a7e1",
+               i =  lines,
+               part = "body")
+      
+      #ft <- bold(ft, i =  lines, part = "body")
+    }
+    
+    lines_end_repeat <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "end_repeat") ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_end_repeat) {
+      ft <- flextable::merge_at(ft,
+                     i = lines,
+                     j = 2:4,
+                     part = "body")
+      ft <- flextable::bg(ft, 
+               bg = "#00a7e1",
+               i =  lines,
+               part = "body")
+    }
+    
+    ## with note
+    lines_note <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "note" ) ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_note) {
+      ft <- flextable::merge_at(ft, 
+                     i = lines, 
+                     j = 2:4, 
+                     part = "body")
+      ft <- flextable::bg(ft, 
+               bg = "#ebebeb",
+               i =  lines,
+               part = "body")
+    }
+    
+    ## with date
+    lines_date <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "date" ) ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_date) {
+      ft <- flextable::merge_at(ft, 
+                     i = lines, 
+                     j = 3:4, 
+                     part = "body")
+    }
+    
+    ## with integer
+    lines_integer <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "integer" ) ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_integer) {
+      ft <- flextable::merge_at(ft, 
+                     i = lines, 
+                     j = 3:4, 
+                     part = "body")
+    }
+    
+    ## with numeric
+    lines_numeric <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "numeric" ) ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_numeric) {
+      ft <- flextable::merge_at(ft, 
+                     i = lines, 
+                     j = 3:4, 
+                     part = "body")
+    }
+    
+    ## with numeric
+    lines_text <- variables |>
+      dplyr::mutate( rows = dplyr::row_number()) |>
+      dplyr::filter( stringr::str_detect(name_type, "text" ) ) |>
+      dplyr::select(rows) |>
+      dplyr::pull()
+    
+    for (lines in lines_text) {
+      ft <- flextable::merge_at(ft, 
+                     i = lines, 
+                     j = 3:4, 
+                     part = "body")
+    }
+    
+    ## Adding top headers
+    # ft <- add_header_row(ft,  colwidths = c(2, 2, 1), 
+    #                      values = c("Questions", "Responses", "Check") )
+    
+    
+    # et voila! 
+    
+      return(ft)
+}
+ 
+
+```
+
+```{r examples-create_flextablel}
+create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint") )
+```
+
+```{r tests-create_flextable}
+# test_that("skeleton works", {
+# 
+# })
+```
+
+
+
+
+
+
+
+
+```{r development-inflate, eval=FALSE}
+
+pkgdown::build_site()
+
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/dev_doc_fusen.Rmd", vignette_name = "XlsFormPrettyPrint Functions")
+```
+

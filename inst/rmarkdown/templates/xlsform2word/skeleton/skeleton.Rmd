@@ -1,0 +1,38 @@
+---
+title: "Questionnaire"
+date: "Version as of `r format(Sys.Date(),  '%d %B %Y')`"
+output:
+  unhcrdown::docx_simple
+params:
+  folder: "inst"
+  xlsformfile: "demo.xlsx"
+  label_language: ""
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, ft.keepnext = F)
+
+suppressWarnings(suppressPackageStartupMessages({
+  library(knitr)
+  library(officedown)
+  library(officer)
+  library(flextable)
+  library(crayon)
+  library(XlsFormPrettyPrint)
+  library(stringr)}
+  ))
+```
+
+```{r prepare_form}
+#xlsformpath <- here::here(params$dir, params$xlsformfile) 
+xlsformpath <- here::here("inst","demo.xlsx") 
+#xlsformpath <- here::here("inst","RMS_CAPI_v2_Brazil_CATI_v3.xlsx") 
+#xlsformpath <-  system.file("demo.xlsx", package = "XlsFormPrettyPrint")
+```
+
+```{r echo=FALSE, results = 'asis'}
+XlsFormPrettyPrint::create_flextable(xlsformpath)
+```
+
+

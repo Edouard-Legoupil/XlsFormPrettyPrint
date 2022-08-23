@@ -1,0 +1,35 @@
+Type: Package
+Package: XlsFormPrettyPrint
+Title: Output a pretty version of an xlsform in word for print, review and
+    comments
+Version: 0.1.0
+Authors@R: 
+    person("Edouard", "Legoupil", , "legoupil@unhcr.org", role = c("cre", "aut"))
+Maintainer: Edouard Legoupil <legoupil@unhcr.org>
+Description: Output nicely printed version of an xlsform This approach
+    allows to develop a questionnaire and offer version for revision based
+    on an a master version maintained directly within the xlform format
+License: MIT + file LICENSE
+URL: https://edouard-legoupil.github.io/XlsFormPrettyPrint
+BugReports: https://github.com/edouard-legoupil/XlsFormPrettyPrint/issues
+Imports: 
+    dplyr,
+    flextable,
+    officer,
+    readxl,
+    stringr,
+    tidyr,
+    tidyselect
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat,
+    utils
+VignetteBuilder: 
+    knitr
+Remotes: 
+    vidonne/unhcrthemes
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0

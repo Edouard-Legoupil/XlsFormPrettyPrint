@@ -28,6 +28,8 @@ library(XlsFormPrettyPrint)
 and `system.file()` to read it in your examples.
 -->
 
+The included demo [xlsform](https://github.com/Edouard-Legoupil/XlsFormPrettyPrint/blob/master/inst/demo.xlsx?raw=true) comes from [https://github.com/pmaengineering/ppp](https://github.com/pmaengineering/ppp)
+
 
 # tabulate_form
 
@@ -40,9 +42,18 @@ knitr::kable(utils::head(prettyform, 10))
 
 ```
 
+# interview_duration
+
+```{r examples-interview_duration, fig.width = 9}
+## Generate the summary chart
+interview_duration( xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
+
+
+```
+
 # create_flextable
 
 ```{r examples-create_flextablel}
-create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint") )
+create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
 ```
 

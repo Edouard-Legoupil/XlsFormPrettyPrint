@@ -4,10 +4,12 @@
 \alias{tabulate_form}
 \title{Combine the xlsform in single table for pretty printing}
 \usage{
-tabulate_form(xlsformpath)
+tabulate_form(xlsformpath, label_language = NULL)
 }
 \arguments{
-\item{xlsformpath}{}
+\item{xlsformpath}{path to the file with xlsform}
+
+\item{label_language}{Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used.}
 }
 \value{
 a single data frame

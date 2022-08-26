@@ -19,6 +19,7 @@ and within each block, each __question details__ is  included:
   3. if select_one or select_multiple, modalities code and label as a nested table
   4. if present - question constraint with warning message as well as related question skip logic
 
+In addition, the package includes a function to come up with an estimation of the interview duration time, a critical element to consider to ensure high quality data.
 
 ## Install  the package
 
@@ -43,9 +44,9 @@ You will then just need to fill in the [YAML parameters](https://rmarkdown.rstud
 
  *  `dir`:  the directory in which to find the xlsform and where to save the output file (absolute path or relative to current working directory).
  
- *  `xlsformfile`:  Path to your questionnaire file as character
+ *  `xlsformfile`:  Name of the questionnaire file as character. The package is not designed to validate your xlsform. Please use xlsform validator beforehand.
     
- *  `label_language`:  Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used. If Arabic, then right-to-left will be used and special characters will be managed.
+ *  `label_language`:  Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used. 
  
 You can check and example here: the [xlsform](https://github.com/Edouard-Legoupil/XlsFormPrettyPrint/blob/master/inst/demo.xlsx?raw=true) and the resulting [word](https://github.com/Edouard-Legoupil/XlsFormPrettyPrint/blob/master/inst/skeleton.docx?raw=true)    
 

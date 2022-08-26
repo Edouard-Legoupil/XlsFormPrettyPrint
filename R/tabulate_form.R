@@ -2,7 +2,8 @@
 
 #' @title Combine the xlsform in single table for pretty printing
 #'
-#' @param xlsformpath
+#' @param xlsformpath path to the file with xlsform
+#' @param label_language Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used.
 #' 
 #' @return a single data frame
 #' @export
@@ -14,7 +15,8 @@
 #' 
 #' knitr::kable(utils::head(prettyform, 10))
 #' 
-tabulate_form <- function(xlsformpath) {
+tabulate_form <- function(xlsformpath,
+                          label_language = NULL) {
 
   survey <- readxl::read_excel(xlsformpath, sheet = "survey")
   
@@ -22,18 +24,32 @@ tabulate_form <- function(xlsformpath) {
   
   settings <- readxl::read_excel(xlsformpath,  sheet = "settings")
   
+  ## Check if a default language is set up in the settings - and add the correct separator
+  # for test settings$default_language <- NULL
+  label_language <- ifelse( is.null(label_language),
+                                      ifelse( is.null(settings$default_language), 
+                                             label_language, 
+                                             paste0("::",settings$default_language)),
+                                     paste0("::",label_language))
+  #label_language 
+  
   modalities <- choices |>
       ## Rename and use what ever label set is coming first 
-      dplyr::rename(labelmod = dplyr::first(tidyselect::starts_with("label")),
-                    namemod = name)  
+      dplyr::rename(labelmod = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("label")), paste0("label",label_language))  ,
+                    namemod = name) 
+    ## Calculate number modalities per list_name - if more than 8 - then we assume that
+    ## those modalities will not be read by the enumerator and not be accounted for the interview duration estimation
     
   
   
   variables <-  survey |>
       ## Rename and use what ever label set is coming first 
-      dplyr::rename(label = dplyr::first(tidyselect::starts_with("label")),
-                    hint = dplyr::first(tidyselect::starts_with("hint")),
-                    constraint_message = dplyr::first(tidyselect::starts_with("constraint_message"))) |>
+      dplyr::rename(label = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("label")), paste0("label",label_language)),
+                    hint =  ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("hint")), paste0("hint",label_language)) ,
+                    constraint_message =  dplyr::first(tidyselect::starts_with("constraint_message"))
+                   # constraint_message = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("constraint_message")), paste0("constraint_message",label_language))
+                    
+                    ) |>
       
       
       # Clean the begin and end in case the _ would be missing...
@@ -53,8 +69,8 @@ tabulate_form <- function(xlsformpath) {
       # dplyr::mutate(label_hint = glue::glue('{label} \n *(hint: {hint})')) |>
       dplyr::mutate(name_type = paste0(name, "\n *(type: ",type, ")")) |>
       dplyr::mutate(label_hint = paste0( 
-                                  dplyr::if_else(is.na(label), "no label", label),
-                                  dplyr::if_else(is.na(hint), "", 
+                                  ifelse(is.na(label), "no label", label),
+                                  ifelse(is.na(hint), "", 
                                                  paste0("\n *(hint: ", hint, ")") 
                                                  ) )) |>
     
@@ -67,18 +83,18 @@ tabulate_form <- function(xlsformpath) {
       dplyr::mutate(relevant = stringr::str_replace_all( relevant,
                                                          pattern = "!=",
                                                          replacement = " is not ")) |>
-      dplyr::mutate(relevant = dplyr::if_else(is.na(relevant), 
+      dplyr::mutate(relevant = ifelse(is.na(relevant), 
                                        relevant, 
                                        paste0(name, " is relevant if ", stringr::str_replace_all( relevant,
                                                         # pattern = c( "(", "\\$", "{", "}", ")" ),
-                                                        pattern = "[^[:alnum:][:blank:]+?=_&/\\-]",
+                                                        pattern = "[^[:alnum:][:blank:]+?><=_&/\\-]",
                                                          replacement = "")) )) |>
     
     ## Make the constraint expression more legible
      # dplyr::mutate(instruct = glue::glue('{relevant} \n *(constraint: {constraint_message})')) |>
       dplyr::mutate(instruct = paste0( 
-                                  dplyr::if_else(is.na(relevant), "", relevant),
-                                  dplyr::if_else(is.na(constraint_message), "", 
+                                  ifelse(is.na(relevant), "", relevant),
+                                  ifelse(is.na(constraint_message), "", 
                                                  paste0("\n Constraint on ", name,": ", constraint_message, ")") 
                                                  ) )) |>
       

@@ -15,16 +15,19 @@ BugReports: https://github.com/edouard-legoupil/XlsFormPrettyPrint/issues
 Imports: 
     dplyr,
     flextable,
+    forcats,
+    ggplot2,
     officer,
+    purrr,
     readxl,
     stringr,
     tidyr,
-    tidyselect
+    tidyselect,
+    utils
 Suggests: 
     knitr,
     rmarkdown,
-    testthat,
-    utils
+    testthat
 VignetteBuilder: 
     knitr
 Remotes: 

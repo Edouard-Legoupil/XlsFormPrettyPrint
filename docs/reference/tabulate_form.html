@@ -54,13 +54,17 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">tabulate_form</span><span class="op">(</span><span class="va">xlsformpath</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">tabulate_form</span><span class="op">(</span><span class="va">xlsformpath</span>, label_language <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>xlsformpath</dt>
-<dd></dd>
+<dd><p>path to the file with xlsform</p></dd>
+
+
+<dt>label_language</dt>
+<dd><p>Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used.</p></dd>
 
 </dl></div>
     <div class="section level2">

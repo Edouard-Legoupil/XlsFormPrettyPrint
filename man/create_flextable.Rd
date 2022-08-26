@@ -4,17 +4,19 @@
 \alias{create_flextable}
 \title{Generate a flextable from the pretty printed version of the xlsform}
 \usage{
-create_flextable(xlsformpath)
+create_flextable(xlsformpath, label_language = NULL)
 }
 \arguments{
-\item{xlsformpath}{}
+\item{xlsformpath}{path to the file with xlsform}
+
+\item{label_language}{Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used.}
 }
 \value{
-a flextable
+a flextable ready to be printed in an Rmd template for word - using officedown.
 }
 \description{
-Generate a flextable from the pretty printed version of the xlsform
+Note that better legibility, it is advised to put the select question with many possible answers - typically something like "what is your country of origin?" -  as 'select_from_file'
 }
 \examples{
-create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint") )
+create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
 }

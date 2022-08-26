@@ -91,6 +91,8 @@
  Use it for your tests in this Rmd thanks to `pkgload::load_all()` to make it available
 and `system.file()` to read it in your examples.
 -->
+<p>The included demo <a href="https://github.com/Edouard-Legoupil/XlsFormPrettyPrint/blob/master/inst/demo.xlsx?raw=true" class="external-link">xlsform</a>
+comes from <a href="https://github.com/pmaengineering/ppp" class="external-link">https://github.com/pmaengineering/ppp</a></p>
 </div>
 <div class="section level2">
 <h2 id="tabulate_form">tabulate_form<a class="anchor" aria-label="anchor" href="#tabulate_form"></a>
@@ -272,11 +274,20 @@ available=yes</td>
 </table>
 </div>
 <div class="section level2">
-<h2 id="create_flextable">create_flextable<a class="anchor" aria-label="anchor" href="#create_flextable"></a>
+<h2 id="interview_duration">interview_duration<a class="anchor" aria-label="anchor" href="#interview_duration"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_flextable.html">create_flextable</a></span><span class="op">(</span>xlsformpath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"demo.xlsx"</span>, package <span class="op">=</span> <span class="st">"XlsFormPrettyPrint"</span><span class="op">)</span> <span class="op">)</span></span></code></pre></div>
-<template id="e03c4ec0-3ef3-41b5-abb9-bdee41850b01"><style>
+<code class="sourceCode R"><span><span class="co">## Generate the summary chart</span></span>
+<span><span class="fu"><a href="../reference/interview_duration.html">interview_duration</a></span><span class="op">(</span> xlsformpath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"demo.xlsx"</span>, package <span class="op">=</span> <span class="st">"XlsFormPrettyPrint"</span><span class="op">)</span>, label_language <span class="op">=</span> <span class="cn">NULL</span> <span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: ggplot2</span></span></code></pre></div>
+<p><img src="xlsformprettyprint-functions_files/figure-html/examples-interview_duration-1.png" width="864"></p>
+</div>
+<div class="section level2">
+<h2 id="create_flextable">create_flextable<a class="anchor" aria-label="anchor" href="#create_flextable"></a>
+</h2>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_flextable.html">create_flextable</a></span><span class="op">(</span>xlsformpath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"demo.xlsx"</span>, package <span class="op">=</span> <span class="st">"XlsFormPrettyPrint"</span><span class="op">)</span>, label_language <span class="op">=</span> <span class="cn">NULL</span> <span class="op">)</span></span></code></pre></div>
+<template id="fdcaaff3-3e26-414f-aeb0-a57bad5a69c6"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -315,835 +326,835 @@ background-color: transparent;
 }
 </style>
 <div class="tabwid">
-<style>.cl-c0665b78{table-layout:auto;}.cl-c059e2bc{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c059f694{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c05b08a4{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c05b08ae{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 1pt solid rgba(190, 190, 190, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c05b08af{background-color:rgba(235, 235, 235, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 1pt solid rgba(190, 190, 190, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c05b08b0{background-color:rgba(0, 167, 225, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 1pt solid rgba(190, 190, 190, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c05b08b8{background-color:rgba(255, 166, 48, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 1pt solid rgba(190, 190, 190, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-c0665b78">
+<style>.cl-2cfb1552{table-layout:auto;}.cl-2ceff00a{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2cf002d4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2cf1e9d2{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2cf1e9dc{background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 1pt solid rgba(190, 190, 190, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2cf1e9dd{background-color:rgba(235, 235, 235, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 1pt solid rgba(190, 190, 190, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2cf1e9e6{background-color:rgba(0, 167, 225, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 1pt solid rgba(190, 190, 190, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2cf1e9e7{background-color:rgba(255, 166, 48, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(190, 190, 190, 1.00);border-top: 1pt solid rgba(190, 190, 190, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-2cfb1552">
 <thead><tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">name_type</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">label_hint</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">labelmod</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">namemod</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">instruct</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">name_type</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">label_hint</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">labelmod</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">namemod</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">instruct</span></p></td>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08a4"><p class="cl-c059f694"><span class="cl-c059e2bc">start</span><br><span class="cl-c059e2bc"> *(type: start)</span></p></td>
-<td rowspan="5" class="cl-c05b08a4"><p class="cl-c059f694"><span class="cl-c059e2bc">no label</span></p></td>
-<td class="cl-c05b08a4"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08a4"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td rowspan="6" class="cl-c05b08a4"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9d2"><p class="cl-2cf002d4"><span class="cl-2ceff00a">start</span><br><span class="cl-2ceff00a"> *(type: start)</span></p></td>
+<td rowspan="5" class="cl-2cf1e9d2"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no label</span></p></td>
+<td class="cl-2cf1e9d2"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9d2"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td rowspan="6" class="cl-2cf1e9d2"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">end</span><br><span class="cl-c059e2bc"> *(type: end)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">end</span><br><span class="cl-2ceff00a"> *(type: end)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">simserial</span><br><span class="cl-c059e2bc"> *(type: simserial)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">simserial</span><br><span class="cl-2ceff00a"> *(type: simserial)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">deviceid</span><br><span class="cl-c059e2bc"> *(type: deviceid)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">deviceid</span><br><span class="cl-2ceff00a"> *(type: deviceid)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">phonenumber</span><br><span class="cl-c059e2bc"> *(type: phonenumber)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">phonenumber</span><br><span class="cl-2ceff00a"> *(type: phonenumber)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">your_name</span><br><span class="cl-c059e2bc"> *(type: text)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">001b. Enter your name below. bla bla bla bla</span><br><span class="cl-c059e2bc"> *(hint: Please record your name)</span></p></td>
-<td colspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">your_name</span><br><span class="cl-2ceff00a"> *(type: text)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">001b. Enter your name below. bla bla bla bla</span><br><span class="cl-2ceff00a"> *(hint: Please record your name)</span></p></td>
+<td colspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">school_level_001</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Whoa - does this question sync? 2</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Never attended</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">never</span></p></td>
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">school_level_001 is relevant if begin_interview=yes and available=yes</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">school_level_001</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Whoa - does this question sync? 2</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Never attended</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">never</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">school_level_001 is relevant if begin_interview=yes and available=yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Primary</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">primary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Primary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">primary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Secondary</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">secondary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Secondary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">secondary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Tertiary</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">tertiary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Tertiary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">tertiary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Never Attended</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">never</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Never Attended</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">never</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Primary (1-8)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">primary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Primary (1-8)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">primary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Secondary (9-12)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">secondary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Secondary (9-12)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">secondary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Technical/Vocational</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">technical</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Technical/Vocational</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">technical</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Higher</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">higher</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Higher</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">higher</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Don’t know</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-88</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Don’t know</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-88</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">name_typed</span><br><span class="cl-c059e2bc"> *(type: text)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">001b. Enter your name below.</span><br><span class="cl-c059e2bc"> *(hint: Please record your name)</span></p></td>
-<td colspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td rowspan="6" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">name_typed</span><br><span class="cl-2ceff00a"> *(type: text)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">001b. Enter your name below.</span><br><span class="cl-2ceff00a"> *(hint: Please record your name)</span></p></td>
+<td colspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td rowspan="6" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">level1</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">003a. Region</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">level1</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">003a. Region</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">level2</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">003b. Zone</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">level2</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">003b. Zone</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">level3</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">003c. District</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">level3</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">003c. District</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">level4</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">003d. Locality name</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">level4</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">003d. Locality name</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">EA</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">004. Enumeration area</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">EA</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">004. Enumeration area</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">structure</span><br><span class="cl-c059e2bc"> *(type: integer)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">005. Structure number</span><br><span class="cl-c059e2bc"> *(hint: Please record the structure number from the household listing form.)</span></p></td>
-<td colspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><br><span class="cl-c059e2bc"> Constraint on structure: Invalid response.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">structure</span><br><span class="cl-2ceff00a"> *(type: integer)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">005. Structure number</span><br><span class="cl-2ceff00a"> *(hint: Please record the structure number from the household listing form.)</span></p></td>
+<td colspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><br><span class="cl-2ceff00a"> Constraint on structure: Invalid response.)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">household</span><br><span class="cl-c059e2bc"> *(type: integer)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">006. Household number</span><br><span class="cl-c059e2bc"> *(hint: Please record the household number from the household listing form.)</span></p></td>
-<td colspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><br><span class="cl-c059e2bc"> Constraint on household: Invalid response.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">household</span><br><span class="cl-2ceff00a"> *(type: integer)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">006. Household number</span><br><span class="cl-2ceff00a"> *(hint: Please record the household number from the household listing form.)</span></p></td>
+<td colspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><br><span class="cl-2ceff00a"> Constraint on household: Invalid response.)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">hh_duplicate_check</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">CHECK: Have you already sent a form for this structure and household?</span><br><span class="cl-c059e2bc"> *(hint: DO NOT DUPLICATE ANY FORM UNLESS YOU ARE CORRECTING A MISTAKE IN AN EARLIER FORM.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Yes</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">yes</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">hh_duplicate_check</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">CHECK: Have you already sent a form for this structure and household?</span><br><span class="cl-2ceff00a"> *(hint: DO NOT DUPLICATE ANY FORM UNLESS YOU ARE CORRECTING A MISTAKE IN AN EARLIER FORM.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">yes</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">duplicate_warning</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">WARNING: Please ensure that the data processing team is aware of the duplication.</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">duplicate_warning is relevant if hh_duplicate_check = yes</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">duplicate_warning</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">WARNING: Please ensure that the data processing team is aware of the duplication.</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">duplicate_warning is relevant if hh_duplicate_check = yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="5" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">resubmit_reasons</span><br><span class="cl-c059e2bc"> *(type: select_multiple)</span></p></td>
-<td rowspan="5" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">CHECK: Why are you resending this form?</span><br><span class="cl-c059e2bc"> *(hint: Choose all that apply.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">There are new household members on this form</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">new_members</span></p></td>
-<td rowspan="5" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">resubmit_reasons is relevant if hh_duplicate_check = yes</span></p></td>
+<td rowspan="5" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">resubmit_reasons</span><br><span class="cl-2ceff00a"> *(type: select_multiple)</span></p></td>
+<td rowspan="5" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">CHECK: Why are you resending this form?</span><br><span class="cl-2ceff00a"> *(hint: Choose all that apply.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">There are new household members on this form</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">new_members</span></p></td>
+<td rowspan="5" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">resubmit_reasons is relevant if hh_duplicate_check = yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">I am correcting a mistake made on a previous form</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">correction</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">I am correcting a mistake made on a previous form</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">correction</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">The previous form disappeared from my phone without being sent</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">dissappeared</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">The previous form disappeared from my phone without being sent</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">dissappeared</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">I submitted the previous form and my supervisor told me that it was not received</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">not_received</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">I submitted the previous form and my supervisor told me that it was not received</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">not_received</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Other reason(s)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Other reason(s)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">other</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">duplicate_warning_hhmember</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">WARNING: Each household should have ONLY ONE household roster with all household members listed on the same form.</span><br><span class="cl-c059e2bc"> *(hint: Please contact the central staff before sending this form.)</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">duplicate_warning_hhmember is relevant if selected resubmit_reasons new_members</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">duplicate_warning_hhmember</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">WARNING: Each household should have ONLY ONE household roster with all household members listed on the same form.</span><br><span class="cl-2ceff00a"> *(hint: Please contact the central staff before sending this form.)</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">duplicate_warning_hhmember is relevant if selected resubmit_reasons new_members</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">available</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">009. Is a member of the household and competent respondent present and available to be interviewed today?</span><br><span class="cl-c059e2bc"> *(hint: You should try 2 times to find the same respondent that did the original HH interview.   After a second failed attempt you may interview a different household member.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Yes</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">yes</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">available</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">009. Is a member of the household and competent respondent present and available to be interviewed today?</span><br><span class="cl-2ceff00a"> *(hint: You should try 2 times to find the same respondent that did the original HH interview.   After a second failed attempt you may interview a different household member.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">yes</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">consent_start</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">INFORMED CONSENT</span><br><span class="cl-c059e2bc"> *(hint: Find a competent member of the household. Read the greeting on the following screen.)</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">consent_start is relevant if available = yes</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">consent_start</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">INFORMED CONSENT</span><br><span class="cl-2ceff00a"> *(hint: Find a competent member of the household. Read the greeting on the following screen.)</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">consent_start is relevant if available = yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">consent_group</span><br><span class="cl-c059e2bc"> *(type: begin_group)</span></p></td>
-<td colspan="3" class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">no label</span></p></td>
-<td class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">consent_group is relevant if available=yes</span></p></td>
+<td class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">consent_group</span><br><span class="cl-2ceff00a"> *(type: begin_group)</span></p></td>
+<td colspan="3" class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no label</span></p></td>
+<td class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">consent_group is relevant if available=yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">consent_readonly</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">Hello. My name is ______________________________ and I am working for the Addis Ababa University, and Federal Ministry of Health.  Now I will read a statement explaining this investigation. Our team collects information on family planning in Ethiopia. We would like to ask you about the characteristics of your household, as well as activities related to family planning. information about you may be used for activities and family planning services in Ethiopia. data collected will be analyzed by researchers, but your name will be removed from all analyzes, so that your information remains anonymous. You can refuse to answer questions you will be asked many times as you want, and decide to stop the survey at any time. Do you have questions about this survey?</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">consent_readonly</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Hello. My name is ______________________________ and I am working for the Addis Ababa University, and Federal Ministry of Health.  Now I will read a statement explaining this investigation. Our team collects information on family planning in Ethiopia. We would like to ask you about the characteristics of your household, as well as activities related to family planning. information about you may be used for activities and family planning services in Ethiopia. data collected will be analyzed by researchers, but your name will be removed from all analyzes, so that your information remains anonymous. You can refuse to answer questions you will be asked many times as you want, and decide to stop the survey at any time. Do you have questions about this survey?</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">begin_interview</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">009a. May I begin the interview now?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Yes</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">yes</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">begin_interview is relevant if available = yes</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">begin_interview</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">009a. May I begin the interview now?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">yes</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">begin_interview is relevant if available = yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">NA</span><br><span class="cl-c059e2bc"> *(type: end_group)</span></p></td>
-<td colspan="3" class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">no label</span></p></td>
-<td class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">NA</span><br><span class="cl-2ceff00a"> *(type: end_group)</span></p></td>
+<td colspan="3" class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no label</span></p></td>
+<td class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="3" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">confirm_interview</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="3" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">G. Do you recall a woman coming to your home asking questions about the members of your household, water, and sanitation?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Yes</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">yes</span></p></td>
-<td rowspan="3" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">confirm_interview is relevant if available=yes</span></p></td>
+<td rowspan="3" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">confirm_interview</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="3" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">G. Do you recall a woman coming to your home asking questions about the members of your household, water, and sanitation?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">yes</span></p></td>
+<td rowspan="3" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">confirm_interview is relevant if available=yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">The enumerator interviewed someone else in my household previously, not me.</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-77</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">The enumerator interviewed someone else in my household previously, not me.</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-77</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">witness_auto</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">010. Interviewer's name: ${your_name}</span><br><span class="cl-c059e2bc"> *(hint: Mark your name as a witness to the consent process.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">1</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">witness_auto is relevant if consent_obtained</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">witness_auto</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">010. Interviewer's name: ${your_name}</span><br><span class="cl-2ceff00a"> *(hint: Mark your name as a witness to the consent process.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">1</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">witness_auto is relevant if consent_obtained</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">witness_manual</span><br><span class="cl-c059e2bc"> *(type: text)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">010. Interviewer's name
-</span><br><span class="cl-c059e2bc">
-</span><br><span class="cl-c059e2bc">
-</span><br><span class="cl-c059e2bc">Please record your name as a witness to the consent process. You previously entered "${name_typed}."</span></p></td>
-<td colspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">witness_manual is relevant if consent_obtained</span><br><span class="cl-c059e2bc"> Constraint on witness_manual: That is not what you entered for your name earlier in this survey.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">witness_manual</span><br><span class="cl-2ceff00a"> *(type: text)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">010. Interviewer's name
+</span><br><span class="cl-2ceff00a">
+</span><br><span class="cl-2ceff00a">
+</span><br><span class="cl-2ceff00a">Please record your name as a witness to the consent process. You previously entered "${name_typed}."</span></p></td>
+<td colspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">witness_manual is relevant if consent_obtained</span><br><span class="cl-2ceff00a"> Constraint on witness_manual: That is not what you entered for your name earlier in this survey.)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">respondent_firstname</span><br><span class="cl-c059e2bc"> *(type: text)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">011. Respondent's first name.</span><br><span class="cl-c059e2bc"> *(hint: You should try 2 times to find the same respondent that did the original HH interview.   After a second failed attempt you may interview a different household member.)</span></p></td>
-<td colspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">respondent_firstname is relevant if begin_interview=yes and available=yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">respondent_firstname</span><br><span class="cl-2ceff00a"> *(type: text)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">011. Respondent's first name.</span><br><span class="cl-2ceff00a"> *(hint: You should try 2 times to find the same respondent that did the original HH interview.   After a second failed attempt you may interview a different household member.)</span></p></td>
+<td colspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">respondent_firstname is relevant if begin_interview=yes and available=yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">school_level</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">I. What is the highest level of school you attended?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Never attended</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">never</span></p></td>
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">school_level is relevant if begin_interview=yes and available=yes</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">school_level</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">I. What is the highest level of school you attended?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Never attended</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">never</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">school_level is relevant if begin_interview=yes and available=yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Primary</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">primary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Primary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">primary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Secondary</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">secondary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Secondary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">secondary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Tertiary</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">tertiary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Tertiary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">tertiary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Never Attended</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">never</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Never Attended</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">never</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Primary (1-8)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">primary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Primary (1-8)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">primary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Secondary (9-12)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">secondary</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Secondary (9-12)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">secondary</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Technical/Vocational</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">technical</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Technical/Vocational</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">technical</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Higher</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">higher</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Higher</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">higher</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Don’t know</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-88</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Don’t know</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-88</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">sect_hh_roster</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">Section 1 – Household Roster - Reinterview</span><br><span class="cl-c059e2bc"> *(hint: I am now going to ask a series of questions about each usual member of the household or anyone who slept in the house last night.)</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">sect_hh_roster is relevant if consent_obtained and available=yes</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">sect_hh_roster</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Section 1 – Household Roster - Reinterview</span><br><span class="cl-2ceff00a"> *(hint: I am now going to ask a series of questions about each usual member of the household or anyone who slept in the house last night.)</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">sect_hh_roster is relevant if consent_obtained and available=yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08b0"><p class="cl-c059f694"><span class="cl-c059e2bc">hh_rpt</span><br><span class="cl-c059e2bc"> *(type: begin_repeat)</span></p></td>
-<td colspan="3" class="cl-c05b08b0"><p class="cl-c059f694"><span class="cl-c059e2bc">Household member</span></p></td>
-<td class="cl-c05b08b0"><p class="cl-c059f694"><span class="cl-c059e2bc">hh_rpt is relevant if consent_obtained</span></p></td>
+<td class="cl-2cf1e9e6"><p class="cl-2cf002d4"><span class="cl-2ceff00a">hh_rpt</span><br><span class="cl-2ceff00a"> *(type: begin_repeat)</span></p></td>
+<td colspan="3" class="cl-2cf1e9e6"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Household member</span></p></td>
+<td class="cl-2cf1e9e6"><p class="cl-2cf002d4"><span class="cl-2ceff00a">hh_rpt is relevant if consent_obtained</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">nm_grp</span><br><span class="cl-c059e2bc"> *(type: begin_group)</span></p></td>
-<td colspan="3" class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">no label</span></p></td>
-<td rowspan="18" class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">nm_grp</span><br><span class="cl-2ceff00a"> *(type: begin_group)</span></p></td>
+<td colspan="3" class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no label</span></p></td>
+<td rowspan="18" class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">firstname_raw</span><br><span class="cl-c059e2bc"> *(type: text)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">101. Name of household member / visitor</span><br><span class="cl-c059e2bc"> *(hint: Start with the head of the household)</span></p></td>
-<td colspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">firstname_raw</span><br><span class="cl-2ceff00a"> *(type: text)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">101. Name of household member / visitor</span><br><span class="cl-2ceff00a"> *(hint: Start with the head of the household)</span></p></td>
+<td colspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">respondent_match</span><br><span class="cl-c059e2bc"> *(type: select_multiple)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">101a. Is this person the respondent?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">1</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">respondent_match</span><br><span class="cl-2ceff00a"> *(type: select_multiple)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">101a. Is this person the respondent?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">1</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">mb_grp</span><br><span class="cl-c059e2bc"> *(type: begin_group)</span></p></td>
-<td colspan="3" class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">no label</span></p></td>
+<td class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">mb_grp</span><br><span class="cl-2ceff00a"> *(type: begin_group)</span></p></td>
+<td colspan="3" class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no label</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="12" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">relationship</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="12" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">102. What is ${firstname}'s relationship to the head of household?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Head</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">head</span></p></td>
+<td rowspan="12" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">relationship</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="12" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">102. What is ${firstname}'s relationship to the head of household?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Head</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">head</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Wife/Husband</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">spouse</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Wife/Husband</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">spouse</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Son/Daughter</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">child</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Son/Daughter</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">child</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Son/Daughter-in-law</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">child_in_law</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Son/Daughter-in-law</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">child_in_law</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Grandchild</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">grandchild</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Grandchild</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">grandchild</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Parent</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">parent</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Parent</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">parent</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Parent in law</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">parent_in_law</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Parent in law</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">parent_in_law</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Brother/Sister</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">sibling</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Brother/Sister</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">sibling</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">House help</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">help</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">House help</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">help</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Other</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">other</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Don't know</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-88</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Don't know</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-88</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">gender</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">103. Is ${firstname} male or female?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Male</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">male</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">gender</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">103. Is ${firstname} male or female?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Male</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">male</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Female</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">female</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Female</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">female</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">age</span><br><span class="cl-c059e2bc"> *(type: integer)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">104. How old was ${firstname} at their last birthday?</span><br><span class="cl-c059e2bc"> *(hint: If less than one year old, record 0)</span></p></td>
-<td colspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><br><span class="cl-c059e2bc"> Constraint on age: Age must be less than 130 and greater than zero.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">age</span><br><span class="cl-2ceff00a"> *(type: integer)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">104. How old was ${firstname} at their last birthday?</span><br><span class="cl-2ceff00a"> *(hint: If less than one year old, record 0)</span></p></td>
+<td colspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><br><span class="cl-2ceff00a"> Constraint on age: Age must be less than 130 and greater than zero.)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">ms_grp</span><br><span class="cl-c059e2bc"> *(type: begin_group)</span></p></td>
-<td colspan="3" class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc">no label</span></p></td>
-<td class="cl-c05b08b8"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">ms_grp</span><br><span class="cl-2ceff00a"> *(type: begin_group)</span></p></td>
+<td colspan="3" class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no label</span></p></td>
+<td class="cl-2cf1e9e7"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="6" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">marital_status</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="6" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">105. What is ${firstname}'s current marital status?</span><br><span class="cl-c059e2bc"> *(hint: If not married, probe to determine if they have ever been married and, if so, if they are divorced/separated or widowed.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Married</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">currently_married</span></p></td>
-<td rowspan="6" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">marital_status is relevant if age = 10</span></p></td>
+<td rowspan="6" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">marital_status</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="6" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">105. What is ${firstname}'s current marital status?</span><br><span class="cl-2ceff00a"> *(hint: If not married, probe to determine if they have ever been married and, if so, if they are divorced/separated or widowed.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Married</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">currently_married</span></p></td>
+<td rowspan="6" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">marital_status is relevant if age &gt;= 10</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Living with a partner</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">currently_living_with_partner</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Living with a partner</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">currently_living_with_partner</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Divorced / separated</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">divorced</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Divorced / separated</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">divorced</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Widow / widower</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">widow</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Widow / widower</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">widow</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Never married</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">never_married</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Never married</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">never_married</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="3" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">usually_live</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="3" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">106. Does ${firstname} usually live here?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Yes</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">yes</span></p></td>
-<td rowspan="6" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td rowspan="3" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">usually_live</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="3" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">106. Does ${firstname} usually live here?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">yes</span></p></td>
+<td rowspan="6" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="3" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">last_night</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="3" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">107. Did ${firstname} stay here last night?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Yes</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">yes</span></p></td>
+<td rowspan="3" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">last_night</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="3" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">107. Did ${firstname} stay here last night?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">not_usual_warn</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">ERROR: Members on household roster must usually live here or must have stayed here last night.
-</span><br><span class="cl-c059e2bc">
-</span><br><span class="cl-c059e2bc">Go back and remove this household member.</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">not_usual_warn is relevant if usually_live  is not  yes and last_night  is not  yes</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">not_usual_warn</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">ERROR: Members on household roster must usually live here or must have stayed here last night.
+</span><br><span class="cl-2ceff00a">
+</span><br><span class="cl-2ceff00a">Go back and remove this household member.</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">not_usual_warn is relevant if usually_live  is not  yes and last_night  is not  yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="8" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">religion</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="8" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">LCL_101. What is the religion of ${firstname}?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Orthodox</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">orthodox</span></p></td>
-<td rowspan="8" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">religion is relevant if relationship = head</span></p></td>
+<td rowspan="8" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">religion</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="8" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">LCL_101. What is the religion of ${firstname}?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Orthodox</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">orthodox</span></p></td>
+<td rowspan="8" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">religion is relevant if relationship = head</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Catholic</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">catholic</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Catholic</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">catholic</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Protestant</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">protestant</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Protestant</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">protestant</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Moslem</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">moslem</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Moslem</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">moslem</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Traditional</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">traditional</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Traditional</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">traditional</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Other</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">other</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No religion</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-77</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No religion</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-77</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">eligibility_screen_no</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">This person IS NOT eligible for the female respondent questionnaire.</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">eligibility_screen_no is relevant if noteligible</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">eligibility_screen_no</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">This person IS NOT eligible for the female respondent questionnaire.</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">eligibility_screen_no is relevant if noteligible</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">eligibility_screen_yes</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">This person IS eligible for the female respondent questionnaire.</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">eligibility_screen_yes is relevant if eligible</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">eligibility_screen_yes</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">This person IS eligible for the female respondent questionnaire.</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">eligibility_screen_yes is relevant if eligible</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">more_hh_members</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">108. Are there any other usual members of your household or persons who slept in the house last night?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Yes</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">yes</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">more_hh_members</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">108. Are there any other usual members of your household or persons who slept in the house last night?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">yes</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">more_hh_members_add</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">There are other members of the household.  Move forward and select "Add Group"</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">more_hh_members_add is relevant if more_hh_members = yes</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">more_hh_members_add</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">There are other members of the household.  Move forward and select "Add Group"</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">more_hh_members_add is relevant if more_hh_members = yes</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">more_hh_members_donotadd</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">There are no other members of the household.  Move forward and select "Do Not Add"</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">more_hh_members_donotadd is relevant if more_hh_members = no</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">more_hh_members_donotadd</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">There are no other members of the household.  Move forward and select "Do Not Add"</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">more_hh_members_donotadd is relevant if more_hh_members = no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08b0"><p class="cl-c059f694"><span class="cl-c059e2bc">NA</span><br><span class="cl-c059e2bc"> *(type: end_repeat)</span></p></td>
-<td colspan="3" class="cl-c05b08b0"><p class="cl-c059f694"><span class="cl-c059e2bc">no label</span></p></td>
-<td class="cl-c05b08b0"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9e6"><p class="cl-2cf002d4"><span class="cl-2ceff00a">NA</span><br><span class="cl-2ceff00a"> *(type: end_repeat)</span></p></td>
+<td colspan="3" class="cl-2cf1e9e6"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no label</span></p></td>
+<td class="cl-2cf1e9e6"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">error_noheads</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">ERROR: There is no household head. 
-</span><br><span class="cl-c059e2bc">
-</span><br><span class="cl-c059e2bc">Go back, select a head.
-</span><br><span class="cl-c059e2bc">
-</span><br><span class="cl-c059e2bc">For each member, check that the relationship to the household head is accurate.</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">error_noheads is relevant if heads = 0 and consent_obtained</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">error_noheads</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">ERROR: There is no household head. 
+</span><br><span class="cl-2ceff00a">
+</span><br><span class="cl-2ceff00a">Go back, select a head.
+</span><br><span class="cl-2ceff00a">
+</span><br><span class="cl-2ceff00a">For each member, check that the relationship to the household head is accurate.</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">error_noheads is relevant if heads = 0 and consent_obtained</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">error_extraheads</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">ERROR: There are ${heads} household heads selected: 
-</span><br><span class="cl-c059e2bc">${head_name_joined}
-</span><br><span class="cl-c059e2bc">
-</span><br><span class="cl-c059e2bc">Go back, select only one head.
-</span><br><span class="cl-c059e2bc">
-</span><br><span class="cl-c059e2bc">For each member, check that the relationship to the household head is accurate.</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">error_extraheads is relevant if heads  1</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">error_extraheads</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">ERROR: There are ${heads} household heads selected: 
+</span><br><span class="cl-2ceff00a">${head_name_joined}
+</span><br><span class="cl-2ceff00a">
+</span><br><span class="cl-2ceff00a">Go back, select only one head.
+</span><br><span class="cl-2ceff00a">
+</span><br><span class="cl-2ceff00a">For each member, check that the relationship to the household head is accurate.</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">error_extraheads is relevant if heads &gt; 1</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">respondent_in_roster</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">The respondent must be in the roster. Only one person in the roster can be marked as the respondent. Go back and make sure that only one person is selected as the respondent.
-</span><br><span class="cl-c059e2bc">
-</span><br><span class="cl-c059e2bc">You entered the the following household members: ${names}</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">respondent_in_roster is relevant if sumrespondent_match  is not  1 and consent_obtained</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">respondent_in_roster</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">The respondent must be in the roster. Only one person in the roster can be marked as the respondent. Go back and make sure that only one person is selected as the respondent.
+</span><br><span class="cl-2ceff00a">
+</span><br><span class="cl-2ceff00a">You entered the the following household members: ${names}</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">respondent_in_roster is relevant if sumrespondent_match  is not  1 and consent_obtained</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">roster_complete</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">109. READ THIS CHECK OUT LOUD: There are ${num_HH_members} household members who are named ${names}.  Is this a complete list of the household members?</span><br><span class="cl-c059e2bc"> *(hint: Remember to include all children in the household.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Yes</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">yes</span></p></td>
-<td rowspan="2" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">roster_complete is relevant if consent_obtained</span><br><span class="cl-c059e2bc"> Constraint on roster_complete: Go back and update the roster.)</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">roster_complete</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">109. READ THIS CHECK OUT LOUD: There are ${num_HH_members} household members who are named ${names}.  Is this a complete list of the household members?</span><br><span class="cl-2ceff00a"> *(hint: Remember to include all children in the household.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Yes</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">yes</span></p></td>
+<td rowspan="2" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">roster_complete is relevant if consent_obtained</span><br><span class="cl-2ceff00a"> Constraint on roster_complete: Go back and update the roster.)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">sect_hh_observation_note</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">Section 3 - Household Observation</span><br><span class="cl-c059e2bc"> *(hint: Please observe the floors, roof and exterior walls.)</span></p></td>
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">sect_hh_observation_note is relevant if consent_obtained</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">sect_hh_observation_note</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Section 3 - Household Observation</span><br><span class="cl-2ceff00a"> *(hint: Please observe the floors, roof and exterior walls.)</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">sect_hh_observation_note is relevant if consent_obtained</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">floor</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">301. Main material of the floor</span><br><span class="cl-c059e2bc"> *(hint: Observe.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Earth/Sand</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">earth</span></p></td>
-<td rowspan="11" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">floor is relevant if consent_obtained</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">floor</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">301. Main material of the floor</span><br><span class="cl-2ceff00a"> *(hint: Observe.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Earth/Sand</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">earth</span></p></td>
+<td rowspan="11" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">floor is relevant if consent_obtained</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Dung</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">dung</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Dung</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">dung</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Wood Planks</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">planks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Wood Planks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">planks</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Palm/Bamboo</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">palm_bamboo</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Palm/Bamboo</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">palm_bamboo</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Parquet or polished wood</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">parquet</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Parquet or polished wood</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">parquet</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Vinyl/Asphalt strips</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">vinyl_asphalt</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Vinyl/Asphalt strips</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">vinyl_asphalt</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Ceramic Tile/Terazzo</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">ceramic_tiles</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Ceramic Tile/Terazzo</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">ceramic_tiles</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Cement</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">cement</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Cement</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">cement</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Carpet</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">carpet</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Carpet</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">carpet</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Other</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">other</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="12" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">roof</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="12" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">302. Main material of the roof</span><br><span class="cl-c059e2bc"> *(hint: Observe.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No Roof</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no_roof</span></p></td>
-<td rowspan="12" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">roof is relevant if consent_obtained</span></p></td>
+<td rowspan="12" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">roof</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="12" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">302. Main material of the roof</span><br><span class="cl-2ceff00a"> *(hint: Observe.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No Roof</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no_roof</span></p></td>
+<td rowspan="12" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">roof is relevant if consent_obtained</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Thatch/Leaf/Mud</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">thatched</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Thatch/Leaf/Mud</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">thatched</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Rustic Mat/Plastic Sheets</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">rustic_mat</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Rustic Mat/Plastic Sheets</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">rustic_mat</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Reed/Bamboo</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">reed_bamboo</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Reed/Bamboo</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">reed_bamboo</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Wood Planks</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">wood_planks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Wood Planks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">wood_planks</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Cardboard</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">cardboard</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Cardboard</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">cardboard</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Corrugated Iron/Metal</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">metal</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Corrugated Iron/Metal</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">metal</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Asbestos/Cement Fiber</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">asbestos</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Asbestos/Cement Fiber</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">asbestos</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Cement/Concrete</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">cement</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Cement/Concrete</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">cement</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Roof Shingles</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">shingles</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Roof Shingles</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">shingles</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Other</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">other</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="18" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">walls</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="18" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">303. Main material of the exterior walls</span><br><span class="cl-c059e2bc"> *(hint: Observe.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No Walls</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">no_walls</span></p></td>
-<td rowspan="18" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">walls is relevant if consent_obtained</span></p></td>
+<td rowspan="18" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">walls</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="18" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">303. Main material of the exterior walls</span><br><span class="cl-2ceff00a"> *(hint: Observe.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No Walls</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">no_walls</span></p></td>
+<td rowspan="18" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">walls is relevant if consent_obtained</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Cane/Trunks/Bamboo/Reed</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">cane</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Cane/Trunks/Bamboo/Reed</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">cane</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Dirt</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">dirt</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Dirt</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">dirt</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Bamboo/Wood with Mud</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">bamboo_mud</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Bamboo/Wood with Mud</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">bamboo_mud</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Stone with Mud</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">stone_mud</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Stone with Mud</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">stone_mud</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Uncovered Adobe</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">uncovered_adobe</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Uncovered Adobe</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">uncovered_adobe</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Plywood</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">plywood</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Plywood</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">plywood</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Cardboard</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">cardboard</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Cardboard</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">cardboard</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Reused Wood</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">reused_wood</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Reused Wood</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">reused_wood</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Corrugated Iron/Metal</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">corrugated_sheets</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Corrugated Iron/Metal</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">corrugated_sheets</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Cement</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">cement</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Cement</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">cement</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Stone with Lime/Cement</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">stone_lime</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Stone with Lime/Cement</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">stone_lime</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Bricks</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">bricks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Bricks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">bricks</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Cement Blocks</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">cement_blocks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Cement Blocks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">cement_blocks</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Covered Adobe</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">covered_adobe</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Covered Adobe</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">covered_adobe</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Wood Planks/Shingles</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">wood_planks</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Wood Planks/Shingles</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">wood_planks</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Other</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">other</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No response</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">-99</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No response</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">-99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">thank_you</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">Thank the respondent for his/her time.</span></p></td>
-<td rowspan="17" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">thank_you</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Thank the respondent for his/her time.</span></p></td>
+<td rowspan="17" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">sect_end</span><br><span class="cl-c059e2bc"> *(type: note)</span></p></td>
-<td colspan="3" class="cl-c05b08af"><p class="cl-c059f694"><span class="cl-c059e2bc">Location and Questionnaire result</span></p></td>
+<td class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">sect_end</span><br><span class="cl-2ceff00a"> *(type: note)</span></p></td>
+<td colspan="3" class="cl-2cf1e9dd"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Location and Questionnaire result</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">gps_point</span><br><span class="cl-c059e2bc"> *(type: geopoint)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">096. Location
-</span><br><span class="cl-c059e2bc">Take a GPS point near the entrance to the household. Record location when the accuracy is smaller than 6m.</span><br><span class="cl-c059e2bc"> *(hint: Note that GPS Coordinates can only be collected when outside.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">gps_point</span><br><span class="cl-2ceff00a"> *(type: geopoint)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">096. Location
+</span><br><span class="cl-2ceff00a">Take a GPS point near the entrance to the household. Record location when the accuracy is smaller than 6m.</span><br><span class="cl-2ceff00a"> *(hint: Note that GPS Coordinates can only be collected when outside.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a"></span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="5" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">survey_language</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="5" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">098. In what language was this interview conducted?</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">English</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">english</span></p></td>
+<td rowspan="5" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">survey_language</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="5" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">098. In what language was this interview conducted?</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">English</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">english</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Amharic</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">amharic</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Amharic</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">amharic</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Oromiffa</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">oromiffa</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Oromiffa</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">oromiffa</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Tigringna</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">tigringna</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Tigringna</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">tigringna</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Other</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Other</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">other</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="9" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">RQ_result</span><br><span class="cl-c059e2bc"> *(type: select_one)</span></p></td>
-<td rowspan="9" class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">099. Questionnaire Result</span><br><span class="cl-c059e2bc"> *(hint: Record the result of the questionnaire.)</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Completed</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">completed</span></p></td>
+<td rowspan="9" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">RQ_result</span><br><span class="cl-2ceff00a"> *(type: select_one)</span></p></td>
+<td rowspan="9" class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">099. Questionnaire Result</span><br><span class="cl-2ceff00a"> *(hint: Record the result of the questionnaire.)</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Completed</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">completed</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">No household member at home or no competent respondent at home at time of visit</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">not_at_home</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">No household member at home or no competent respondent at home at time of visit</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">not_at_home</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Postponed</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">postponed</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Postponed</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">postponed</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Refused</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">refused</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Refused</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">refused</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Partly completed</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">partly_completed</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Partly completed</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">partly_completed</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Dwelling vacant or address not a dwelling</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">vacant</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Dwelling vacant or address not a dwelling</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">vacant</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Dwelling destroyed</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">destroyed</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Dwelling destroyed</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">destroyed</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Dwelling not found</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">not_found</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Dwelling not found</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">not_found</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">Entire household absent for extended period</span></p></td>
-<td class="cl-c05b08ae"><p class="cl-c059f694"><span class="cl-c059e2bc">absent_extended_period</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">Entire household absent for extended period</span></p></td>
+<td class="cl-2cf1e9dc"><p class="cl-2cf002d4"><span class="cl-2ceff00a">absent_extended_period</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="d64a8bb2-5b9c-4db9-a5d4-249221239db3"></div>
+</div></template><div class="flextable-shadow-host" id="34aec333-6aa7-4b55-a3a4-8fa164de0783"></div>
 <script>
-var dest = document.getElementById("d64a8bb2-5b9c-4db9-a5d4-249221239db3");
-var template = document.getElementById("e03c4ec0-3ef3-41b5-abb9-bdee41850b01");
+var dest = document.getElementById("34aec333-6aa7-4b55-a3a4-8fa164de0783");
+var template = document.getElementById("fdcaaff3-3e26-414f-aeb0-a57bad5a69c6");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";

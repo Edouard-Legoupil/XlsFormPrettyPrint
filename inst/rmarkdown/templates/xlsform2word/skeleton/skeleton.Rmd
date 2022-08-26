@@ -1,17 +1,16 @@
 ---
-title: "Questionnaire"
+title: "Questionnaire Review"
 date: "Version as of `r format(Sys.Date(),  '%d %B %Y')`"
 output:
   unhcrdown::docx_simple
 params:
-  folder: "inst"
-  xlsformfile: "demo.xlsx"
-  label_language: ""
+  folder: ""
+  xlsformfile: "myxlsform.xlsx"
+  label_language: "NULL"
 ---
 
-
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, ft.keepnext = F)
+knitr::opts_chunk$set(echo = FALSE, ft.keepnext = F, message = FALSE, warnng = FALSE)
 
 suppressWarnings(suppressPackageStartupMessages({
   library(knitr)
@@ -24,12 +23,24 @@ suppressWarnings(suppressPackageStartupMessages({
   ))
 ```
 
-```{r prepare_form}
-#xlsformpath <- here::here(params$dir, params$xlsformfile) 
-xlsformpath <- here::here("inst","demo.xlsx") 
-#xlsformpath <- here::here("inst","RMS_CAPI_v2_Brazil_CATI_v3.xlsx") 
+```{r getform}
+xlsformpath <- here::here(params$dir, params$xlsformfile)
+label_language <- params$label_language
+# To run the demo file - thanks to https://github.com/pmaengineering/ppp/tree/master/docs 
 #xlsformpath <-  system.file("demo.xlsx", package = "XlsFormPrettyPrint")
 ```
+
+# Review 
+
+This document was automatically generated from the encoded version of the questionnaire in xlsform using the  [{XlsFormPrettyPrint} package](https://edouard-legoupil.github.io/XlsFormPrettyPrint/). It is designed to ease the final steps in the questionnaire design process in order to avoid juggling between the encoded and printed versions.
+
+Below is an estimation of the duration time for the questionnaire:
+
+```{r echo=FALSE, fig.width=9, results= 'asis'}
+XlsFormPrettyPrint::interview_duration(xlsformpath)
+```
+
+# Content
 
 ```{r echo=FALSE, results = 'asis'}
 XlsFormPrettyPrint::create_flextable(xlsformpath)

@@ -383,7 +383,7 @@ interview_duration <- function(xlsformpath,
                               totalquestion, 
                               " questions, among which ",
                               totalrepeatedquestion,
-                              " are repeated" ), 90),
+                              " are repeated" ), 80),
                
                subtitle = stringr::str_wrap(paste0("Assumptions: ",
                     wpm, " words per minute, an average of ",
@@ -392,9 +392,9 @@ interview_duration <- function(xlsformpath,
                     resptimeopen, " seconds to open text question. An average ", 
                     avrgrepeat, " repeat records (if included) and a maximum of ", 
                     maxmodalities, " potential answers for closed questions to read loudly by the enumerator."),
-                                 110), 
+                                 100), 
                x = "", y = "", caption = "Built with XlsFormPrettyPrint package") +
-          theme_minimal( base_size = 16) +
+          theme_minimal( base_size = 8) +
           geom_vline(xintercept = 0, size = 1.1, colour = "#333333") +
           theme( panel.grid.major.x  = element_blank(),
                  panel.grid.major.y  = element_line(color = "#cbcbcb"),

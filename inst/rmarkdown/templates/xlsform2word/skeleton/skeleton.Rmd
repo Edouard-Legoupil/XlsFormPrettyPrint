@@ -41,13 +41,13 @@ label_language <- params$label_language
 This document was automatically generated from the encoded version of the questionnaire in xlsform using the  [{XlsFormPrettyPrint} package](https://edouard-legoupil.github.io/XlsFormPrettyPrint/). It is designed to ease the final steps in the questionnaire design process in order to avoid juggling between the encoded and printed versions. Below is an estimation of the duration time for the questionnaire:
 
 ```{r echo=FALSE, fig.width=6, fig.height=6, results= 'asis'}
-XlsFormPrettyPrint::interview_duration(xlsformpath)
+XlsFormPrettyPrint::interview_duration(xlsformpath, label_language)
 ```
 
 # Content
 
 ```{r echo=FALSE, results = 'asis'}
-XlsFormPrettyPrint::create_flextable(xlsformpath)
+XlsFormPrettyPrint::create_flextable(xlsformpath, label_language)
 ```
 
 

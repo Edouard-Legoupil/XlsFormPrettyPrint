@@ -13,9 +13,9 @@
 #'
 #' @examples
 #' create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
-create_flextable <- function(xlsformpath, label_language = NULL) {
+create_flextable <- function(xlsformpath, label_language ) {
   
-    variables <- tabulate_form(xlsformpath, label_language = NULL)
+    variables <- tabulate_form(xlsformpath, label_language )
       # create a flex table
     ft <- flextable::flextable(variables) 
     

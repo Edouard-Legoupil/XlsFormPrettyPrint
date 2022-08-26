@@ -18,11 +18,20 @@
 tabulate_form <- function(xlsformpath,
                           label_language = NULL) {
 
+  
+  # Additional Test
+  # xlsformpath <- "inst/RMS_CAPI_v2_en_es_fr.xlsx"
+  # label_language <- "Espa<f1>ol (es)"
+  # label_language <- "Fran<e7>ais (fr)"
+  # label_language <- "English (en)" 
+  
   survey <- readxl::read_excel(xlsformpath, sheet = "survey")
   
   choices <- readxl::read_excel(xlsformpath, sheet = "choices") 
   
   settings <- readxl::read_excel(xlsformpath,  sheet = "settings")
+  
+ 
   
   ## Check if a default language is set up in the settings - and add the correct separator
   # for test settings$default_language <- NULL

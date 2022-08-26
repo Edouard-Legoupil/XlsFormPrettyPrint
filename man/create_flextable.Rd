@@ -4,7 +4,7 @@
 \alias{create_flextable}
 \title{Generate a flextable from the pretty printed version of the xlsform}
 \usage{
-create_flextable(xlsformpath, label_language = NULL)
+create_flextable(xlsformpath, label_language)
 }
 \arguments{
 \item{xlsformpath}{path to the file with xlsform}

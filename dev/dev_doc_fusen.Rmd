@@ -54,11 +54,20 @@ xlsformpath <- system.file("demo.xlsx", package = "XlsFormPrettyPrint")
 tabulate_form <- function(xlsformpath,
                           label_language = NULL) {
 
+  
+  # Additional Test
+  # xlsformpath <- "inst/RMS_CAPI_v2_en_es_fr.xlsx"
+  # label_language <- "Español (es)"
+  # label_language <- "Français (fr)"
+  # label_language <- "English (en)" 
+  
   survey <- readxl::read_excel(xlsformpath, sheet = "survey")
   
   choices <- readxl::read_excel(xlsformpath, sheet = "choices") 
   
   settings <- readxl::read_excel(xlsformpath,  sheet = "settings")
+  
+ 
   
   ## Check if a default language is set up in the settings - and add the correct separator
   # for test settings$default_language <- NULL
@@ -439,9 +448,9 @@ interview_duration( xlsformpath = system.file("demo.xlsx", package = "XlsFormPre
 #' @return a flextable ready to be printed in an Rmd template for word - using officedown.
 #' @export
 #'
-create_flextable <- function(xlsformpath, label_language = NULL) {
+create_flextable <- function(xlsformpath, label_language ) {
   
-    variables <- tabulate_form(xlsformpath, label_language = NULL)
+    variables <- tabulate_form(xlsformpath, label_language )
       # create a flex table
     ft <- flextable::flextable(variables) 
     

@@ -53,7 +53,23 @@ interview_duration( xlsformpath = system.file("demo.xlsx", package = "XlsFormPre
 
 # create_flextable
 
-```{r examples-create_flextablel}
+```{r examples-create_flextable}
 create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
+```
+
+# xlsform_compare
+
+```{r examples-xlsform_compare}
+
+check <- xlsform_compare(listfile = c( "demo.xlsx","demo_adapt1.xlsx","demo_adapt2.xlsx"),  
+                         folder = stringr::str_sub(system.file("", package = "XlsFormPrettyPrint"), end = -1) ,                    
+                         label_language = NULL,
+                         fileout = NULL)
+
+# variablescompare,
+knitr::kable(utils::head(as.data.frame(check[1]), 10))
+# choicescompare
+knitr::kable(utils::head(as.data.frame(check[2]), 10, 10))
+
 ```
 

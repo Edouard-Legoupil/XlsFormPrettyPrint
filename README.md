@@ -19,7 +19,11 @@ and within each block, each __question details__ is  included:
   3. if select_one or select_multiple, modalities code and label as a nested table
   4. if present - question constraint with warning message as well as related question skip logic
 
-In addition, the package includes a function to come up with an estimation of the interview duration time, a critical element to consider to ensure high quality data.
+In addition, the package includes:
+
+ * a function `interview_duration` to come up with an estimation of the interview duration time, a critical element to consider to ensure high quality data,
+ 
+ * a function  `xlsform_compare` to compare different version of a similar xlsform.
 
 ## Install  the package
 

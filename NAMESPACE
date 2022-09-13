@@ -3,3 +3,4 @@
 export(create_flextable)
 export(interview_duration)
 export(tabulate_form)
+export(xlsform_compare)

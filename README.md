@@ -32,7 +32,7 @@ remotes::install_github('Edouard-Legoupil/XlsFormPrettyPrint')
 
 ## Quick start
 
-One `{XlsFormPrettyPrint}` installed, you can create a new RMD using the custom template.
+Once `{XlsFormPrettyPrint}` installed, you can create a new RMD using the custom template.
 
 Using [RStudio](https://www.rstudio.com/):
 

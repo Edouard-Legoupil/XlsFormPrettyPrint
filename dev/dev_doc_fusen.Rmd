@@ -704,9 +704,16 @@ xlsform_compare <- function( listfile,
                   name = name) |>
     dplyr::filter(!(is.na(list_name))) |>
     dplyr::select(list_name ,name, label, form_file)
+  
+  
+   
+  survey <-  readxl::read_excel(xlsformpath, sheet = "survey")
+    if ("required" %in% colnames(survey)) {   } else {    survey$required <- ""   }
+    if ("relevant" %in% colnames(survey)) {   } else {    survey$relevant <- ""   }
+    if ("constraint" %in% colnames(survey)) {   } else {    survey$constraint <- ""   }
 
   #### Variables master to... ######
-  variablesmaster <-  readxl::read_excel(xlsformpath, sheet = "survey") |>
+  variablesmaster <-  survey |>
     ## Rename and use what ever label set is coming first
     dplyr::rename(label = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("label")), paste0("label",label_language)),
                   hint =  ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("hint")), paste0("hint",label_language))  ) |>
@@ -738,7 +745,8 @@ xlsform_compare <- function( listfile,
 
     ## Need to add more cleaning in case...
     dplyr::filter(!(is.na(type))) |>
-    dplyr::select(type, list_name, name, label, hint, required, relevant, constraint, form_file)
+    dplyr::select(type, list_name, name, label, hint, required, relevant, constraint, 
+                  form_file)
 
   ## initiate comparison
   choicescompare <- choicesmaster
@@ -778,8 +786,15 @@ xlsform_compare <- function( listfile,
     choicescompare$form_file <- NULL
     choicescompare$form_file.diff <- NULL
 
+    
+    
     ## Now variable ####
-    variables <-  readxl::read_excel(xlsformpath, sheet = "survey") |>
+      survey <-  readxl::read_excel(xlsformpath, sheet = "survey")
+    if ("required" %in% colnames(survey)) {   } else {    survey$required <- ""   }
+    if ("relevant" %in% colnames(survey)) {   } else {    survey$relevant <- ""   }
+    if ("constraint" %in% colnames(survey)) {   } else {    survey$constraint <- ""   }
+    
+    variables <-  survey |>
       ## Rename and use what ever label set is coming first
       dplyr::rename(label = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("label")), paste0("label",label_language)),
                     hint =  ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("hint")), paste0("hint",label_language))   ) |>

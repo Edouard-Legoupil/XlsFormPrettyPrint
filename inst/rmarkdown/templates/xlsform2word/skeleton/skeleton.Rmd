@@ -6,19 +6,30 @@ output:
 params:
   dir: ""
   xlsformfile: "myxlsform.xlsx"
-  label_language: "NULL"
+  label_language: "NULL"  
+  wpm: "180" # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
+  maxmodalities: "7" # maxmodalities if more than 7 potential answers for a select question (per default)- then we assume that those modalities will not be read by the enumerator - but rather selected based on an open answer - and not be accounted for the modalities duration estimation 
+  resptimeclose: "4" # resptimeclose  an average 4 seconds (per default) for respondent to reply for closed questions
+  resptimecondopen: "7" # resptimecondopen an average of  7 seconds (per default) to reply to conditional text question (accounting for question type of "other, please specify"). 
+  resptimeopen: "10" # resptimeopen an average of  10 seconds (per default) to reply to open text question. 
+  avrgrepeat: "3" # avrgrepeat In case of repeat questions, an average 3 repeat (per default) is accounted for. 
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, ft.keepnext = F, message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE,  
+                      fig.cap = TRUE, 
+                      ft.keepnext = F, 
+                      message = FALSE, 
+                      warning = FALSE,
+                      fig.width = 6.27)
+ 
+
 ## Need to install from Github
 # remotes::install_github('vidonne/unhcrdown')
 # remotes::install_github('vidonne/unhcrdesign')
 # remotes::install_github('vidonne/unhcrtemplate')
 # remotes::install_github('Edouard-Legoupil/XlsFormPrettyPrint')  
-```
-
-```{r   include=FALSE}
+ 
 suppressWarnings(suppressPackageStartupMessages({
   library(knitr)
   library(officedown)
@@ -27,11 +38,9 @@ suppressWarnings(suppressPackageStartupMessages({
   library(XlsFormPrettyPrint)
   library(stringr)}
   ))
-```
 
-```{r getform}
 xlsformpath <- here::here(params$dir, params$xlsformfile)
-label_language <- params$label_language
+
 # To run the demo file - thanks to https://github.com/pmaengineering/ppp/tree/master/docs 
 #xlsformpath <-  system.file("demo.xlsx", package = "XlsFormPrettyPrint")
 ```
@@ -39,15 +48,30 @@ label_language <- params$label_language
 # Review 
 
 This document was automatically generated from the encoded version of the questionnaire in xlsform using the  [{XlsFormPrettyPrint} package](https://edouard-legoupil.github.io/XlsFormPrettyPrint/). It is designed to ease the final steps in the questionnaire design process in order to avoid juggling between the encoded and printed versions. Below is an estimation of the duration time for the questionnaire:
+ 
 
-```{r echo=FALSE, fig.width=6, fig.height=6, results= 'asis'}
-XlsFormPrettyPrint::interview_duration(xlsformpath, label_language)
+```{r single-bar, echo=FALSE, message=FALSE, warning=FALSE   }
+XlsFormPrettyPrint::interview_duration(xlsformpath, 
+                                       params$label_language,
+  # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
+  wpm  = params$wpm, 
+# maxmodalities if more than 7 potential answers for a select question (per default)- then we assume that those modalities will not be read by the enumerator - but rather selected based on an open answer - and not be accounted for the modalities duration estimation
+  maxmodalities = params$maxmodalities , 
+# resptimeclose  an average 4 seconds (per default) for respondent to reply for closed questions
+  resptimeclose  = params$resptimeclose,
+# resptimecondopen an average of  7 seconds (per default) to reply to conditional text question (accounting for question type of "other, please specify"). 
+  resptimecondopen = params$resptimecondopen,
+# resptimeopen an average of  10 seconds (per default) to reply to open text question. 
+  resptimeopen = params$resptimeopen,
+# avrgrepeat In case of repeat questions, an average 3 repeat (per default) is accounted for. 
+  avrgrepeat = params$avrgrepeat )
 ```
 
 # Content
 
 ```{r echo=FALSE, results = 'asis'}
-XlsFormPrettyPrint::create_flextable(xlsformpath, label_language)
+XlsFormPrettyPrint::create_flextable(xlsformpath, 
+                                     params$label_language)
 ```
 
 

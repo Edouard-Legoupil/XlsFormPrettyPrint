@@ -58,6 +58,8 @@ You can check and example here: the [xlsform](https://github.com/Edouard-Legoupi
 
 The package mostly leverages the capacity of the [{flextable}](https://ardata-fr.github.io/flextable-book/layout.html) package and embed UNHCR template from [{unhcrdown}](https://vidonne.github.io/unhcrdown/).
 
-Another R package [https://github.com/hedibmustapha/QuestionnaireHTML](https://github.com/hedibmustapha/QuestionnaireHTML) was built with the same goal but with a limited scope and styling capacity. There's also from a similar project in python: [https://github.com/pmaengineering/ppp](https://github.com/pmaengineering/ppp)
+Two other R package / projects [QuestionnaireHTML](https://github.com/hedibmustapha/QuestionnaireHTML) and [ODK2Doc](https://github.com/zaeendesouza/ODK2Doc) were built with the same goal but with a limited scope and styling capacity. Last there's also from a similar project in python: [https://github.com/pmaengineering/ppp](https://github.com/pmaengineering/ppp)
+
+
 
 

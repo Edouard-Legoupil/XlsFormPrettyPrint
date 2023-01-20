@@ -2,18 +2,25 @@
 % Please edit documentation in R/xlsform_compare.R
 \name{xlsform_compare}
 \alias{xlsform_compare}
-\title{Generate a consolidated xlsform from a list of xlsform in order to quickly flag differences}
+\title{Generate a consolidated xlsform from a list of xlsform in order to
+quickly flag differences}
 \usage{
 xlsform_compare(listfile, folder, label_language, fileout = NULL)
 }
 \arguments{
-\item{listfile}{list of  path to multiple xlsform files - ll assumed to be in the same folder. The first one will be used as the master to compare the other to}
+\item{listfile}{list of  path to multiple xlsform files - ll assumed to be
+in the same folder. The first one will be used as the master to compare the
+other to}
 
 \item{folder}{where all the files are located}
 
-\item{label_language}{Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used.}
+\item{label_language}{Language to be used in case you have more than one.
+If not specified, the 'default_language' in the 'settings' worksheet is used.
+If that is not specified and more than one language is in the XlsForm,
+the language that comes first within column order will be used.}
 
-\item{fileout}{if specified defined the name of the file to save the xlsform_compare output}
+\item{fileout}{if specified defined the name of the file to save the xlsform
+_compare output}
 }
 \value{
 a file .

@@ -2,46 +2,74 @@
 
 #' @title Generate a flextable from the pretty printed version of the xlsform
 #' 
-#' @description Note that better legibility, it is advised to put the select question with many possible answers - typically something like "what is your country of origin?" -  as 'select_from_file'
+#' @description Note that better legibility, it is advised to put the select 
+#' question with many possible answers - typically something like 
+#' "what is your country of origin?" -  as 'select_from_file'
 #'
 #' @param xlsformpath path to the file with xlsform
 #' 
-#' @param label_language Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used.
+#' @param label_language Language to be used in case you have more than one. 
+#' If not specified, the 'default_language' in the 'settings' worksheet is used.
+#'  If that is not specified and more than one language is in the XlsForm, 
+#'  the language that comes first within column order will be used.
 #' 
-#' @return a flextable ready to be printed in an Rmd template for word - using officedown.
+#' @importFrom flextable flextable colformat_double 
+#'              set_table_properties border_remove border_outer
+#'              border_inner_h border_inner_v merge_v
+#'              bg merge_at set_flextable_defaults bold
+#' @importFrom officer fp_border
+#' @importFrom dplyr mutate filter select pull row_number
+#' @importFrom stringr str_detect 
+#' 
+#' @return a flextable ready to be printed in an Rmd template for word - 
+#'          using officedown.
 #' @export
 #'
 #' @examples
-#' create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
+#' create_flextable(
+#'   xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"),
+#'   label_language = NULL )
 create_flextable <- function(xlsformpath, label_language ) {
   
+
     variables <- tabulate_form(xlsformpath, label_language )
+    
+    flextable::set_flextable_defaults(font.family  = "Calibri",
+                       border.color = "black",  
+                       font.size    = 9, 
+                       theme_fun    = "theme_vanilla"#,
+                       #big.mark     = ",", 
+                       #table.layout = "autofit"
+                       )
+  
+  
       # create a flex table
     ft <- flextable::flextable(variables) 
+    
+    #ft <- flextable::width(ft, j = ~ Questions + Choices, width =  12)
+    ft <- flextable::set_table_properties(ft, layout = "autofit")
     
     #   ## Add theme
     ft <- flextable::colformat_double(ft, big.mark = "'", decimal.mark = ",", digits = 1)
       
-    ft <- flextable::set_table_properties(ft, layout = "autofit")
       
-     ft <- flextable::border_remove(ft)
+    ft <- flextable::border_remove(ft)
       
-     std_border <- officer::fp_border(width = 1, color = "grey")
+    std_border <- officer::fp_border(width = 1, color = "grey")
       
-     ft <- flextable::border_outer(ft , 
+    ft <- flextable::border_outer(ft , 
                         part="all", 
                         border = std_border )
-     ft <- flextable::border_inner_h(ft, 
+    ft <- flextable::border_inner_h(ft, 
                           part="all", 
                           border = std_border)
-     ft <- flextable::border_inner_v(ft, 
+    ft <- flextable::border_inner_v(ft, 
                           part="all", 
                           border = std_border)
     
     #  need to merge cells based on rules
     ##  vertical merging of similar values to address merging with modalities when it's the case
-    ft <- flextable::merge_v(ft, j = c("name_type", "label_hint",  "instruct" ))
-    
+    #ft <- flextable::merge_v(ft, j = c("name_type", "label_hint",  "instruct" ))
     
     ## horizontal merging in case of beging_group - end_group - begin_repeat, end_repeat
     
@@ -53,34 +81,36 @@ create_flextable <- function(xlsformpath, label_language ) {
     ## identify the line with group
     lines_begin_group <- variables |>
       dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "begin_group" ) ) |>
+      dplyr::filter( stringr::str_detect(Choices, "begin_group" ) ) |>
       dplyr::select(rows) |>
       dplyr::pull()
     
     for (lines in lines_begin_group) {
-      ft <- flextable::merge_at(ft, 
-                     i = lines, 
-                     j = 2:4, 
-                     part = "body")
+      # lines <-  lines_begin_group[1]
+      # ft <- flextable::merge_at(ft, 
+      #                i = lines, 
+      #                j = 2:4, 
+      #                part = "body")
+      ## Put colors for the beging group color
       ft <- flextable::bg(ft, 
                bg = "#ffa630",
                i =  lines,
                part = "body")
       
-     # ft <- bold(ft, i =  lines, part = "body")
+      ft <- flextable::bold(ft, i =  lines, part = "body")
     }
     
     lines_end_group <- variables |>
       dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "end_group") ) |>
+      dplyr::filter( stringr::str_detect(Choices, "end_group") ) |>
       dplyr::select(rows) |>
       dplyr::pull()
     
     for (lines in lines_end_group) {
-      ft <- flextable::merge_at(ft,
-                     i = lines,
-                     j = 2:4,
-                     part = "body")
+      # ft <- flextable::merge_at(ft,
+      #                i = lines,
+      #                j = 2:4,
+      #                part = "body")
       ft <- flextable::bg(ft, 
                bg = "#ffa630",
                i =  lines,
@@ -91,34 +121,34 @@ create_flextable <- function(xlsformpath, label_language ) {
     # with repeat
     lines_begin_repeat <- variables |>
       dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "begin_repeat") ) |>
+      dplyr::filter( stringr::str_detect(Choices, "begin_repeat") ) |>
       dplyr::select(rows) |>
       dplyr::pull()
     
     for (lines in lines_begin_repeat) {
-      ft <- flextable::merge_at(ft,
-                     i = lines,
-                     j = 2:4,
-                     part = "body")
+      # ft <- flextable::merge_at(ft,
+      #                i = lines,
+      #                j = 2:4,
+      #                part = "body")
       ft <- flextable::bg(ft, 
                bg = "#00a7e1",
                i =  lines,
                part = "body")
       
-      #ft <- bold(ft, i =  lines, part = "body")
+       ft <- bold(ft, i =  lines, part = "body")
     }
     
     lines_end_repeat <- variables |>
       dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "end_repeat") ) |>
+      dplyr::filter( stringr::str_detect(Choices, "end_repeat") ) |>
       dplyr::select(rows) |>
       dplyr::pull()
     
     for (lines in lines_end_repeat) {
-      ft <- flextable::merge_at(ft,
-                     i = lines,
-                     j = 2:4,
-                     part = "body")
+      # ft <- flextable::merge_at(ft,
+      #                i = lines,
+      #                j = 2:4,
+      #                part = "body")
       ft <- flextable::bg(ft, 
                bg = "#00a7e1",
                i =  lines,
@@ -128,85 +158,85 @@ create_flextable <- function(xlsformpath, label_language ) {
     ## with note
     lines_note <- variables |>
       dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "note" ) ) |>
+      dplyr::filter( stringr::str_detect(Choices, "note" ) ) |>
       dplyr::select(rows) |>
       dplyr::pull()
     
     for (lines in lines_note) {
-      ft <- flextable::merge_at(ft, 
-                     i = lines, 
-                     j = 2:4, 
-                     part = "body")
+      # ft <- flextable::merge_at(ft, 
+      #                i = lines, 
+      #                j = 2:4, 
+      #                part = "body")
       ft <- flextable::bg(ft, 
                bg = "#ebebeb",
                i =  lines,
                part = "body")
     }
     
-    ## with date
-    lines_date <- variables |>
-      dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "date" ) ) |>
-      dplyr::select(rows) |>
-      dplyr::pull()
-    
-    for (lines in lines_date) {
-      ft <- flextable::merge_at(ft, 
-                     i = lines, 
-                     j = 3:4, 
-                     part = "body")
-    }
-    
-    ## with integer
-    lines_integer <- variables |>
-      dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "integer" ) ) |>
-      dplyr::select(rows) |>
-      dplyr::pull()
-    
-    for (lines in lines_integer) {
-      ft <- flextable::merge_at(ft, 
-                     i = lines, 
-                     j = 3:4, 
-                     part = "body")
-    }
-    
-    ## with numeric
-    lines_numeric <- variables |>
-      dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "numeric" ) ) |>
-      dplyr::select(rows) |>
-      dplyr::pull()
-    
-    for (lines in lines_numeric) {
-      ft <- flextable::merge_at(ft, 
-                     i = lines, 
-                     j = 3:4, 
-                     part = "body")
-    }
-    
-    ## with numeric
-    lines_text <- variables |>
-      dplyr::mutate( rows = dplyr::row_number()) |>
-      dplyr::filter( stringr::str_detect(name_type, "text" ) ) |>
-      dplyr::select(rows) |>
-      dplyr::pull()
-    
-    for (lines in lines_text) {
-      ft <- flextable::merge_at(ft, 
-                     i = lines, 
-                     j = 3:4, 
-                     part = "body")
-    }
+    # ## with date
+    # lines_date <- variables |>
+    #   dplyr::mutate( rows = dplyr::row_number()) |>
+    #   dplyr::filter( stringr::str_detect(Choices, "date" ) ) |>
+    #   dplyr::select(rows) |>
+    #   dplyr::pull()
+    # 
+    # for (lines in lines_date) {
+    #   ft <- flextable::merge_at(ft, 
+    #                  i = lines, 
+    #                  j = 3:4, 
+    #                  part = "body")
+    # }
+    # 
+    # ## with integer
+    # lines_integer <- variables |>
+    #   dplyr::mutate( rows = dplyr::row_number()) |>
+    #   dplyr::filter( stringr::str_detect(name_type, "integer" ) ) |>
+    #   dplyr::select(rows) |>
+    #   dplyr::pull()
+    # 
+    # for (lines in lines_integer) {
+    #   ft <- flextable::merge_at(ft, 
+    #                  i = lines, 
+    #                  j = 3:4, 
+    #                  part = "body")
+    # }
+    # 
+    # ## with numeric
+    # lines_numeric <- variables |>
+    #   dplyr::mutate( rows = dplyr::row_number()) |>
+    #   dplyr::filter( stringr::str_detect(name_type, "numeric" ) ) |>
+    #   dplyr::select(rows) |>
+    #   dplyr::pull()
+    # 
+    # for (lines in lines_numeric) {
+    #   ft <- flextable::merge_at(ft, 
+    #                  i = lines, 
+    #                  j = 3:4, 
+    #                  part = "body")
+    # }
+    # 
+    # ## with numeric
+    # lines_text <- variables |>
+    #   dplyr::mutate( rows = dplyr::row_number()) |>
+    #   dplyr::filter( stringr::str_detect(name_type, "text" ) ) |>
+    #   dplyr::select(rows) |>
+    #   dplyr::pull()
+    # 
+    # for (lines in lines_text) {
+    #   ft <- flextable::merge_at(ft, 
+    #                  i = lines, 
+    #                  j = 3:4, 
+    #                  part = "body")
+    # }
     
     ## Adding top headers
     # ft <- add_header_row(ft,  colwidths = c(2, 2, 1), 
     #                      values = c("Questions", "Responses", "Check") )
     
     
-    # et voila! 
     
-      return(ft)
+    # et voila! 
+    return(ft)
 }
  
 

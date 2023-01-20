@@ -9,7 +9,10 @@ tabulate_form(xlsformpath, label_language = NULL)
 \arguments{
 \item{xlsformpath}{path to the file with xlsform}
 
-\item{label_language}{Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used.}
+\item{label_language}{Language to be used in case you have more than one.
+If not specified, the 'default_language' in the 'settings' worksheet is used.
+If that is not specified and more than one language is in the XlsForm,
+the language that comes first within column order will be used.}
 }
 \value{
 a single data frame

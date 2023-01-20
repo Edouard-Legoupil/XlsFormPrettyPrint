@@ -31,32 +31,6 @@ and `system.file()` to read it in your examples.
 The included demo [xlsform](https://github.com/Edouard-Legoupil/XlsFormPrettyPrint/blob/master/inst/demo.xlsx?raw=true) comes from [https://github.com/pmaengineering/ppp](https://github.com/pmaengineering/ppp)
 
 
-# tabulate_form
-
-```{r examples-tabulate_form}
-# tabulate_form()
-
-prettyform <- tabulate_form( xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint") )
-
-knitr::kable(utils::head(prettyform, 10))
-
-```
-
-# interview_duration
-
-```{r examples-interview_duration, fig.width = 9}
-## Generate the summary chart
-interview_duration( xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
-
-
-```
-
-# create_flextable
-
-```{r examples-create_flextable}
-create_flextable(xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
-```
-
 # xlsform_compare
 
 ```{r examples-xlsform_compare}
@@ -72,4 +46,78 @@ knitr::kable(utils::head(as.data.frame(check[1]), 10))
 knitr::kable(utils::head(as.data.frame(check[2]), 10, 10))
 
 ```
+
+# interview_duration
+
+```{r examples-interview_duration, fig.width = 9}
+## Generate the summary chart
+interview_duration( 
+  xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), 
+  label_language = NULL,
+  # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
+  wpm  = 180, 
+# maxmodalities if more than 7 potential answers for a select question (per default)- then we assume that those modalities will not be read by the enumerator - but rather selected based on an open answer - and not be accounted for the modalities duration estimation
+  maxmodalities = 7 , 
+# resptimeclose  an average 4 seconds (per default) for respondent to reply for closed questions
+  resptimeclose  = 4,
+# resptimecondopen an average of  7 seconds (per default) to reply to conditional text question (accounting for question type of "other, please specify"). 
+  resptimecondopen = 7,
+# resptimeopen an average of  10 seconds (per default) to reply to open text question. 
+  resptimeopen = 10,
+# avrgrepeat In case of repeat questions, an average 3 repeat (per default) is accounted for. 
+  avrgrepeat = 3 
+  )
+
+
+```
+
+# tabulate_form
+
+```{r examples-tabulate_form}
+# tabulate_form()
+
+prettyform <- tabulate_form( xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint") )
+
+knitr::kable(utils::head(prettyform, 10))
+
+```
+
+# create_flextable
+
+```{r examples-create_flextable}
+create_flextable(
+  xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"),
+  label_language = NULL )
+```
+
+# render_prettyprint
+
+    
+
+  
+
+```{r example-render_prettyprint}
+# render_prettyprint( dir =  system.file("", package = "XlsFormPrettyPrint"),
+#   xlsformfile = "demo.xlsx",
+#   label_language = NULL )
+```
+
+  
+
+  
+
+
+# app_prettyprint
+
+  
+
+```{r example-app_prettyprint}
+#app_prettyprint()
+```
+
+  
+
+  
+
+
 

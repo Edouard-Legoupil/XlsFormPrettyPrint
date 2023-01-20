@@ -2,7 +2,7 @@ Type: Package
 Package: XlsFormPrettyPrint
 Title: Output a pretty version of an xlsform in word for print, review and
     comments
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person("Edouard", "Legoupil", , "legoupil@unhcr.org", role = c("cre", "aut"))
 Maintainer: Edouard Legoupil <legoupil@unhcr.org>
@@ -22,13 +22,15 @@ Imports:
     openxlsx,
     purrr,
     readxl,
+    rmarkdown,
+    shiny,
+    shinyalert,
     stringr,
     tidyr,
     tidyselect,
     utils
 Suggests: 
     knitr,
-    rmarkdown,
     testthat
 VignetteBuilder: 
     knitr
@@ -37,4 +39,4 @@ Remotes:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3

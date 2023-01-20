@@ -2,27 +2,65 @@
 
 #' @title Prepare a summary estimation of the interview duration. 
 #' 
-#' @description When designing a questionnaire, it is key to keep the interview duration under control. Typically less than 20 minutes for a phone interview and less than 40 minutes for a face to face interview. 
+#' @description When designing a questionnaire, it is key to keep the interview
+#'  duration under control. Typically less than 20 minutes for a phone interview 
+#'  and less than 40 minutes for a face to face interview. 
 #' 
-#' The function is designed to provide a rough estimate (aka a guesstimate...) of the interview duration in order to assess this element of questionnaire design quality. If the questionnaire takes too long, then one needs to trim it or split it into multiple ones...
+#' The function is designed to provide a rough estimate (aka a guesstimate...) 
+#' of the interview duration in order to assess this element of questionnaire 
+#' design quality. If the questionnaire takes too long, then one needs to trim 
+#' it or split it into multiple ones...
 #' 
-#' The estimations provided in that function are based on a series of assumptions and accounts for the following elements:
-#'   * the time needed to read the label of the questions - or the note - Questions hint are not accounted for as they tips for enumerator and not to be read to respondent
-#'   * the time needed to read the question modalities - as there's nothing in xlsform that tells whether the enumerator is expected to read loudly the potential answers in case of closed question, the function has a parameter to 
-#'  * the time need to answer the question - here we are accounting for 3 distinct situations, each of them with a different potential duration: - close questions - open questions and open questions set up under skip logic so typically - the "if other, specify" - each comes with distinct response time 
-#'  * the time needed when we have a "repeat" block - typically questions repeated for a family roster - 
+#' The estimations provided in that function are based on a series of assumptions
+#'  and accounts for the following elements:
+#'   * the time needed to read the label of the questions - or the note -
+#'    Questions hint are not accounted for as they tips for enumerator and not
+#'     to be read to respondent
+#'   * the time needed to read the question modalities - as there's nothing in 
+#'   xlsform that tells whether the enumerator is expected to read loudly the 
+#'   potential answers in case of closed question, the function has a parameter 
+#'   to 
+#'  * the time need to answer the question - here we are accounting for 3 
+#'  distinct situations, each of them with a different potential duration: 
+#'  - close questions - open questions and open questions set up under skip logic
+#'   so typically - the "if other, specify" - each comes with distinct response time 
+#'  * the time needed when we have a "repeat" block - typically questions repeated 
+#'  for a family roster - 
 
 #'
 #' @param xlsformpath path to the file with xlsform
-#' @param label_language Language to be used in case you have more than one. If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used.
+#' @param label_language Language to be used in case you have more than one. 
+#' If not specified, the 'default_language' in the 'settings' worksheet is used.
+#'  If that is not specified and more than one language is in the XlsForm, 
+#'  the language that comes first within column order will be used.
 #' 
-#' @param wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
-#' @param maxmodalities if more than 7 potential answers for a select question (per default)- then we assume that those modalities will not be read by the enumerator - but rather selected based on an open answer - and not be accounted for the modalities duration estimation
-#' @param resptimeclose  an average 4 seconds (per default) for respondent to reply for closed questions
-#' @param resptimecondopen an average of  7 seconds (per default) to reply to conditional text question (accounting for question type of "other, please specify"). 
-#' @param resptimeopen an average of  10 seconds (per default) to reply to open text question. 
-#' @param avrgrepeat In case of repeat questions, an average 3 repeat (per default) is accounted for. 
+#' @param wpm  word per minute - an average 180 word per minute (per default) 
+#' required to read loudly the text
+#' @param maxmodalities if more than 7 potential answers for a select question 
+#' (per default)- then we assume that those modalities will not be read by the 
+#' enumerator - but rather selected based on an open answer - and not be 
+#' accounted for the modalities duration estimation
+#' @param resptimeclose  an average 4 seconds (per default) for respondent to
+#'  reply for closed questions
+#' @param resptimecondopen an average of  7 seconds (per default) to reply 
+#' to conditional text question (accounting for question type of 
+#' "other, please specify"). 
+#' @param resptimeopen an average of  10 seconds (per default) to reply to 
+#' open text question. 
+#' @param avrgrepeat In case of repeat questions, an average 3 repeat 
+#' (per default) is accounted for. 
 #' 
+#' @importFrom stringr str_count
+#' @importFrom dplyr rename mutate group_by summarise filter mutate recode
+#'                first distinct select left_join filter pull ungroup
+#' @importFrom readxl read_excel
+#' @importFrom forcats fct_reorder
+#' @importFrom tidyselect starts_with
+#' @importFrom tidyr separate replace_na
+#' @importFrom ggplot2 ggplot geom_bar geom_line
+#'              scale_y_continuous
+#'            labs theme_minimal  geom_vline  
+#'              theme
 #' 
 #' @return a summary review in a visual format as a gpplot2 chart
 #' @export
@@ -30,7 +68,22 @@
 #' 
 #' @examples
 #' ## Generate the summary chart
-#' interview_duration( xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), label_language = NULL )
+#' interview_duration( 
+#'   xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), 
+#'   label_language = NULL,
+#'   # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
+#'   wpm  = 180, 
+#' # maxmodalities if more than 7 potential answers for a select question (per default)- then we assume that those modalities will not be read by the enumerator - but rather selected based on an open answer - and not be accounted for the modalities duration estimation
+#'   maxmodalities = 7 , 
+#' # resptimeclose  an average 4 seconds (per default) for respondent to reply for closed questions
+#'   resptimeclose  = 4,
+#' # resptimecondopen an average of  7 seconds (per default) to reply to conditional text question (accounting for question type of "other, please specify"). 
+#'   resptimecondopen = 7,
+#' # resptimeopen an average of  10 seconds (per default) to reply to open text question. 
+#'   resptimeopen = 10,
+#' # avrgrepeat In case of repeat questions, an average 3 repeat (per default) is accounted for. 
+#'   avrgrepeat = 3 
+#'   )
 #' 
 #' 
 interview_duration <- function(xlsformpath,  
@@ -71,11 +124,9 @@ interview_duration <- function(xlsformpath,
       dplyr::group_by(list_name) |>
       dplyr::summarise( count = dplyr::n(),
                         num_word = sum(labelmod_word),
-                        readtime = sum(labelmod_duration) )  
+                        readtime = sum(labelmod_duration) )  |>
+      dplyr::ungroup()
     
-
-  
-  
   variables <-  survey |>
       ## Rename and use what ever label set is coming first 
       dplyr::rename(label = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("label")), paste0("label",label_language)),
@@ -99,8 +150,8 @@ interview_duration <- function(xlsformpath,
                           sep = " ",
                           fill = "right") |>
     
-        # capturing repeat
-        dplyr::mutate(repeatvar  = purrr::accumulate2(type, name,
+      # capturing repeat
+      dplyr::mutate(repeatvar  = purrr::accumulate2(type, name,
                                                       function (repeatvar, type, name) {
                                                         if (type  == "begin_repeat")  c(repeatvar, name)
                                                         else if (type  == "end_repeat") utils::head(repeatvar, -1)
@@ -164,7 +215,8 @@ interview_duration <- function(xlsformpath,
     dplyr::mutate( seq= paste0(order,"_", type) ) |>
     dplyr::mutate( is_repeated = ifelse(repeatvar =="","once", "repeated")) |>
     dplyr::mutate( is_note = ifelse(type =="note", "yes","no")) |>
-    dplyr::mutate( is_question = ifelse(type %in% c("text", "integer", "numeric", "date","select_multiple", "select_one", "select_one_from_file"), "yes","no"))
+    dplyr::mutate( is_question = ifelse(type %in% c("text", "integer", "numeric", "date","select_multiple", "select_one", "select_one_from_file"), "yes","no"))|>
+    dplyr::ungroup()
   
   #  dplyr::mutate( seq= as.factor(seq, forcats::fct_reorder(seq, order)   ) )
   
@@ -180,17 +232,20 @@ interview_duration <- function(xlsformpath,
                 dplyr::group_by( is_note ) |> 
                 dplyr::summarise(count = dplyr::n()) |> 
                 dplyr::filter( is_note =="yes") |> 
+                dplyr::ungroup() |> 
                 dplyr::pull()
 
   totalquestion <- variables |> 
                    dplyr::group_by(is_question) |> 
                    dplyr::summarise(count = dplyr::n()) |> 
-                   dplyr::filter( is_question =="yes") |> 
+                   dplyr::filter( is_question =="yes") |>
+                   dplyr::ungroup() |> 
                    dplyr::pull()
 
   totalrepeatedquestion <- variables |> 
                            dplyr::group_by(is_question, is_repeated) |> 
-                           dplyr::summarise(count = dplyr::n()) |> 
+                           dplyr::summarise(count = dplyr::n()) |>
+                           dplyr::ungroup()|> 
                            dplyr::filter( is_question =="yes" & is_repeated == "repeated") |> 
                            dplyr::pull()
   
@@ -209,18 +264,20 @@ interview_duration <- function(xlsformpath,
                                   color = is_repeated,
                                   group = 1),
                     #colour = "red", 
-                    size = 3 ) + 
+                    linewidth = 3 ) +  
+          scale_x_discrete(guide = guide_axis(check.overlap = TRUE)) +
+          scale_fill_viridis_d(option = "inferno") +
           scale_y_continuous(
-               name = "Question duration (bar in sec)", 
+               name = "Question duration (bar)", 
                sec.axis = sec_axis(~ .  *sf , 
-                                   name = "Interview Duration (line in min)")) +
+                                   name = "Interview Duration (line)")) +
          # coord_flip() + 
           labs(title = stringr::str_wrap(paste0("Estimated interview duration is around ", totaldur," minutes for a total of ",
                               totalnote,                               " notes and ",
                               totalquestion, 
                               " questions, among which ",
                               totalrepeatedquestion,
-                              " are repeated" ), 80),
+                              " are repeated" ), 100),
                
                subtitle = stringr::str_wrap(paste0("Assumptions: ",
                     wpm, " words per minute, an average of ",
@@ -229,7 +286,7 @@ interview_duration <- function(xlsformpath,
                     resptimeopen, " seconds to open text question. An average ", 
                     avrgrepeat, " repeat records (if included) and a maximum of ", 
                     maxmodalities, " potential answers for closed questions to read loudly by the enumerator."),
-                                 100), 
+                                 115), 
                x = "", y = "", caption = "Built with XlsFormPrettyPrint package") +
           theme_minimal( base_size = 8) +
           geom_vline(xintercept = 0, size = 1.1, colour = "#333333") +
@@ -237,8 +294,8 @@ interview_duration <- function(xlsformpath,
                  panel.grid.major.y  = element_line(color = "#cbcbcb"),
                  panel.grid.minor = element_blank()   ,
                  legend.position = "bottom",legend.title=element_blank(),
-                 axis.text.x = element_text(angle = 90)) +
-          theme(plot.title.position = "plot")
+                 axis.text.x = element_text(angle = 90),
+                 plot.title.position = "plot")  
           
      print(p)
     

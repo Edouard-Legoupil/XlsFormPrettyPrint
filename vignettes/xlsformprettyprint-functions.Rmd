@@ -51,7 +51,7 @@ knitr::kable(utils::head(as.data.frame(check[2]), 10, 10))
 
 ```{r examples-interview_duration, fig.width = 9}
 ## Generate the summary chart
-interview_duration( 
+result <- interview_duration( 
   xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), 
   label_language = NULL,
   # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
@@ -68,6 +68,10 @@ interview_duration(
   avrgrepeat = 3 
   )
 
+result[["plot"]]
+result[["totaldur"]]
+
+knitr::kable(head(result[["variables"]], 15))
 
 ```
 

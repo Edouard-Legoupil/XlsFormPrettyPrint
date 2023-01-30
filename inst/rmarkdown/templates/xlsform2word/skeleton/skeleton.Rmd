@@ -51,7 +51,7 @@ This document was automatically generated from the encoded version of the questi
  
 
 ```{r single-bar, echo=FALSE, message=FALSE, warning=FALSE   }
-XlsFormPrettyPrint::interview_duration(xlsformpath, 
+p <- XlsFormPrettyPrint::interview_duration(xlsformpath, 
                                        params$label_language,
   # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
   wpm  = params$wpm, 
@@ -65,6 +65,8 @@ XlsFormPrettyPrint::interview_duration(xlsformpath,
   resptimeopen = params$resptimeopen,
 # avrgrepeat In case of repeat questions, an average 3 repeat (per default) is accounted for. 
   avrgrepeat = params$avrgrepeat )
+
+p[["plot"]]
 ```
 
 # Content

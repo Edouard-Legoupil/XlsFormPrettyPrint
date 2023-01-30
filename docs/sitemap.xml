@@ -16,6 +16,12 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/news/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/app_prettyprint.html</loc>
+  </url>
+  <url>
     <loc>/reference/create_flextable.html</loc>
   </url>
   <url>
@@ -23,6 +29,9 @@
   </url>
   <url>
     <loc>/reference/interview_duration.html</loc>
+  </url>
+  <url>
+    <loc>/reference/render_prettyprint.html</loc>
   </url>
   <url>
     <loc>/reference/tabulate_form.html</loc>

@@ -61,14 +61,15 @@
 #'              scale_y_continuous
 #'            labs theme_minimal  geom_vline  
 #'              theme
-#' 
-#' @return a summary review in a visual format as a gpplot2 chart
+#'              
+#' @importFrom cli cli_alert_warning
+#' @return a list with a summary review in a visual format as a gpplot2 chart
 #' @export
 #' 
 #' 
 #' @examples
 #' ## Generate the summary chart
-#' interview_duration( 
+#' result <- interview_duration( 
 #'   xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), 
 #'   label_language = NULL,
 #'   # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
@@ -85,6 +86,10 @@
 #'   avrgrepeat = 3 
 #'   )
 #' 
+#' result[["plot"]]
+#' result[["totaldur"]]
+#' 
+#' knitr::kable(head(result[["variables"]], 15))
 #' 
 interview_duration <- function(xlsformpath,  
                                label_language = NULL,
@@ -104,6 +109,12 @@ interview_duration <- function(xlsformpath,
   settings <- readxl::read_excel(xlsformpath,  sheet = "settings")
   
   ## Check if a default language is set up in the settings - and add the correct separator
+  
+   if(is.null(label_language)) {
+    cli::cli_alert_warning("You did not set up any language requirement to launch the functions... Are you sure your xlsform does not include any language specifification like {.code English (eng)} or {.code Espa<f1>ol (es)} or {.code Fran<e7>ais (fr)}  ")
+ } 
+  
+  
   # for test settings$default_language <- NULL
   label_language <- ifelse( is.null(label_language),
                                       ifelse( is.null(settings$default_language), 
@@ -127,11 +138,14 @@ interview_duration <- function(xlsformpath,
                         readtime = sum(labelmod_duration) )  |>
       dplyr::ungroup()
     
+  ## Add a hint column in case it's not there per default
+  if (any(stringr::str_detect(colnames(survey), "hint" ) ) ) { } else {  survey$hint <- NA  }
+  
   variables <-  survey |>
       ## Rename and use what ever label set is coming first 
       dplyr::rename(label = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("label")), paste0("label",label_language)),
-                    hint =  ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("hint")), paste0("hint",label_language)) ,
-                    constraint_message =  dplyr::first(tidyselect::starts_with("constraint_message"))
+                    hint =  ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("hint")), paste0("hint",label_language)) #,
+                   # constraint_message =  dplyr::first(tidyselect::starts_with("constraint_message"))
                    # constraint_message = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("constraint_message")), paste0("constraint_message",label_language))
                     ) |>
       # Take if it's only a label question used fo formatting.. 
@@ -297,7 +311,13 @@ interview_duration <- function(xlsformpath,
                  axis.text.x = element_text(angle = 90),
                  plot.title.position = "plot")  
           
-     print(p)
+  
+    result <- list( plot = p,
+                    totaldur = totaldur,
+                    variables = variables)
+  
+  
+     return(result)
     
 }
  

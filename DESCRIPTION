@@ -2,7 +2,7 @@ Type: Package
 Package: XlsFormPrettyPrint
 Title: Output a pretty version of an xlsform in word for print, review and
     comments
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person("Edouard", "Legoupil", , "legoupil@unhcr.org", role = c("cre", "aut"))
 Maintainer: Edouard Legoupil <legoupil@unhcr.org>
@@ -13,6 +13,7 @@ License: MIT + file LICENSE
 URL: https://edouard-legoupil.github.io/XlsFormPrettyPrint
 BugReports: https://github.com/edouard-legoupil/XlsFormPrettyPrint/issues
 Imports: 
+    cli,
     dplyr,
     flextable,
     forcats,

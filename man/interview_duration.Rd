@@ -45,7 +45,7 @@ open text question.}
 (per default) is accounted for.}
 }
 \value{
-a summary review in a visual format as a gpplot2 chart
+a list with a summary review in a visual format as a gpplot2 chart
 }
 \description{
 When designing a questionnaire, it is key to keep the interview
@@ -81,7 +81,7 @@ for a family roster -
 }
 \examples{
 ## Generate the summary chart
-interview_duration( 
+result <- interview_duration( 
   xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), 
   label_language = NULL,
   # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
@@ -98,5 +98,9 @@ interview_duration(
   avrgrepeat = 3 
   )
 
+result[["plot"]]
+result[["totaldur"]]
+
+knitr::kable(head(result[["variables"]], 15))
 
 }

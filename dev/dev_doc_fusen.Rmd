@@ -439,8 +439,9 @@ knitr::kable(utils::head(as.data.frame(check[2]), 10, 10))
 #'              scale_y_continuous
 #'            labs theme_minimal  geom_vline  
 #'              theme
-#' 
-#' @return a summary review in a visual format as a gpplot2 chart
+#'              
+#' @importFrom cli cli_alert_warning
+#' @return a list with a summary review in a visual format as a gpplot2 chart
 #' @export
 #' 
 #' 
@@ -462,6 +463,12 @@ interview_duration <- function(xlsformpath,
   settings <- readxl::read_excel(xlsformpath,  sheet = "settings")
   
   ## Check if a default language is set up in the settings - and add the correct separator
+  
+   if(is.null(label_language)) {
+    cli::cli_alert_warning("You did not set up any language requirement to launch the functions... Are you sure your xlsform does not include any language specifification like {.code English (eng)} or {.code Español (es)} or {.code Français (fr)}  ")
+ } 
+  
+  
   # for test settings$default_language <- NULL
   label_language <- ifelse( is.null(label_language),
                                       ifelse( is.null(settings$default_language), 
@@ -485,11 +492,14 @@ interview_duration <- function(xlsformpath,
                         readtime = sum(labelmod_duration) )  |>
       dplyr::ungroup()
     
+  ## Add a hint column in case it's not there per default
+  if (any(stringr::str_detect(colnames(survey), "hint" ) ) ) { } else {  survey$hint <- NA  }
+  
   variables <-  survey |>
       ## Rename and use what ever label set is coming first 
       dplyr::rename(label = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("label")), paste0("label",label_language)),
-                    hint =  ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("hint")), paste0("hint",label_language)) ,
-                    constraint_message =  dplyr::first(tidyselect::starts_with("constraint_message"))
+                    hint =  ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("hint")), paste0("hint",label_language)) #,
+                   # constraint_message =  dplyr::first(tidyselect::starts_with("constraint_message"))
                    # constraint_message = ifelse( is.null(label_language), dplyr::first(tidyselect::starts_with("constraint_message")), paste0("constraint_message",label_language))
                     ) |>
       # Take if it's only a label question used fo formatting.. 
@@ -655,7 +665,13 @@ interview_duration <- function(xlsformpath,
                  axis.text.x = element_text(angle = 90),
                  plot.title.position = "plot")  
           
-     print(p)
+  
+    result <- list( plot = p,
+                    totaldur = totaldur,
+                    variables = variables)
+  
+  
+     return(result)
     
 }
  
@@ -664,7 +680,7 @@ interview_duration <- function(xlsformpath,
 
 ```{r examples-interview_duration, fig.width=9, }
 ## Generate the summary chart
-interview_duration( 
+result <- interview_duration( 
   xlsformpath = system.file("demo.xlsx", package = "XlsFormPrettyPrint"), 
   label_language = NULL,
   # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
@@ -681,6 +697,10 @@ interview_duration(
   avrgrepeat = 3 
   )
 
+result[["plot"]]
+result[["totaldur"]]
+
+knitr::kable(head(result[["variables"]], 15))
 
 ```
 
@@ -746,7 +766,7 @@ tabulate_form <- function(xlsformpath,
                                        paste0("label",label_language))  ,
                     namemod = name)  |>
       dplyr::filter( !(is.na(list_name)))  |> 
-      dplyr::mutate(labelnamemod = paste0("[",namemod,"] ",labelmod))  |>
+      dplyr::mutate(labelnamemod = paste0("-[",namemod,"] ",labelmod))  |>
     ## Calculate number modalities per list_name - if more than 8 - then we assume that
     ## those modalities will not be read by the enumerator and not be accounted for the interview duration estimation
      
@@ -915,20 +935,28 @@ create_flextable <- function(xlsformpath, label_language ) {
 
     variables <- tabulate_form(xlsformpath, label_language )
     
-    flextable::set_flextable_defaults(font.family  = "Calibri",
-                       border.color = "black",  
-                       font.size    = 9, 
-                       theme_fun    = "theme_vanilla"#,
-                       #big.mark     = ",", 
-                       #table.layout = "autofit"
-                       )
+    # flextable::set_flextable_defaults(font.family  = "Calibri",
+    #                    border.color = "black",  
+    #                    font.size    = 9, 
+    #                    theme_fun    = "theme_vanilla"#,
+    #                    #big.mark     = ",", 
+    #                    #table.layout = "autofit"
+    #                    )
   
   
       # create a flex table
     ft <- flextable::flextable(variables) 
     
-    #ft <- flextable::width(ft, j = ~ Questions + Choices, width =  12)
-    ft <- flextable::set_table_properties(ft, layout = "autofit")
+    #ft <- flextable::width(ft, j = ~ Questions + Choices, width =  6)
+   #  ft <- flextable::width(ft, j = ~ Variables + Logic, width =  0.5)
+   # flextable::ncol_keys(ft)
+    
+
+ 
+
+   # ft <- flextable::width(ft, j = 1:4, width = c(3,3,1, 1)) 
+    
+    # ft <- flextable::set_table_properties(ft, layout = "autofit")
     
     #   ## Add theme
     ft <- flextable::colformat_double(ft, big.mark = "'", decimal.mark = ",", digits = 1)
@@ -1115,6 +1143,12 @@ create_flextable <- function(xlsformpath, label_language ) {
     #                      values = c("Questions", "Responses", "Check") )
     
     
+    ## Arrange width proportion.. with a total width of 9
+    ft <- ft |>
+            flextable::width(j = 1, width = 4) |>
+            flextable::width(j = 2, width = 2)|>
+            flextable::width(j = 3, width = 1) |>
+            flextable::width(j = 4, width = 2)    
     
     # et voila! 
     return(ft)

@@ -28,10 +28,8 @@ In addition, the package includes:
 ## Install  the package
 
 ```
-remotes::install_github('vidonne/unhcrdown')
-remotes::install_github('vidonne/unhcrdesign')
-remotes::install_github('vidonne/unhcrtemplate')
-remotes::install_github('Edouard-Legoupil/XlsFormPrettyPrint')  
+install.packages("pak")
+pak::pkg_install('Edouard-Legoupil/XlsFormPrettyPrint')  
 ```
 
 ## Quick start

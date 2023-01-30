@@ -58,7 +58,7 @@ tabulate_form <- function(xlsformpath,
                                        paste0("label",label_language))  ,
                     namemod = name)  |>
       dplyr::filter( !(is.na(list_name)))  |> 
-      dplyr::mutate(labelnamemod = paste0("[",namemod,"] ",labelmod))  |>
+      dplyr::mutate(labelnamemod = paste0("-[",namemod,"] ",labelmod))  |>
     ## Calculate number modalities per list_name - if more than 8 - then we assume that
     ## those modalities will not be read by the enumerator and not be accounted for the interview duration estimation
      

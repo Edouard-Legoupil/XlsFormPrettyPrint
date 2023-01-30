@@ -34,20 +34,28 @@ create_flextable <- function(xlsformpath, label_language ) {
 
     variables <- tabulate_form(xlsformpath, label_language )
     
-    flextable::set_flextable_defaults(font.family  = "Calibri",
-                       border.color = "black",  
-                       font.size    = 9, 
-                       theme_fun    = "theme_vanilla"#,
-                       #big.mark     = ",", 
-                       #table.layout = "autofit"
-                       )
+    # flextable::set_flextable_defaults(font.family  = "Calibri",
+    #                    border.color = "black",  
+    #                    font.size    = 9, 
+    #                    theme_fun    = "theme_vanilla"#,
+    #                    #big.mark     = ",", 
+    #                    #table.layout = "autofit"
+    #                    )
   
   
       # create a flex table
     ft <- flextable::flextable(variables) 
     
-    #ft <- flextable::width(ft, j = ~ Questions + Choices, width =  12)
-    ft <- flextable::set_table_properties(ft, layout = "autofit")
+    #ft <- flextable::width(ft, j = ~ Questions + Choices, width =  6)
+   #  ft <- flextable::width(ft, j = ~ Variables + Logic, width =  0.5)
+   # flextable::ncol_keys(ft)
+    
+
+ 
+
+   # ft <- flextable::width(ft, j = 1:4, width = c(3,3,1, 1)) 
+    
+    # ft <- flextable::set_table_properties(ft, layout = "autofit")
     
     #   ## Add theme
     ft <- flextable::colformat_double(ft, big.mark = "'", decimal.mark = ",", digits = 1)
@@ -234,6 +242,12 @@ create_flextable <- function(xlsformpath, label_language ) {
     #                      values = c("Questions", "Responses", "Check") )
     
     
+    ## Arrange width proportion.. with a total width of 9
+    ft <- ft |>
+            flextable::width(j = 1, width = 4) |>
+            flextable::width(j = 2, width = 2)|>
+            flextable::width(j = 3, width = 1) |>
+            flextable::width(j = 4, width = 2)    
     
     # et voila! 
     return(ft)

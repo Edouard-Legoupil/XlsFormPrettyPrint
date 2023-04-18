@@ -50,6 +50,9 @@ You will then just need to fill in the [YAML parameters](https://rmarkdown.rstud
     
  *  `label_language`:  Language to be used in case you have more than one - for instance _"Español (es)"_, _"Français (fr)"_ or _"English (en)"_ . If not specified, the 'default_language' in the 'settings' worksheet is used. If that is not specified and more than one language is in the XlsForm, the language that comes first within column order will be used. 
  
+ 
+ * Step 3: `Knit` the notebook to get your word version.
+ 
 You can check and example here: the [xlsform](https://github.com/Edouard-Legoupil/XlsFormPrettyPrint/blob/master/inst/demo.xlsx?raw=true) and the resulting [word](https://github.com/Edouard-Legoupil/XlsFormPrettyPrint/blob/master/inst/skeleton.docx?raw=true)    
 
 ## Reference

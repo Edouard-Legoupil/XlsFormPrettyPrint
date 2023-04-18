@@ -40,7 +40,11 @@ Using [RStudio](https://www.rstudio.com/):
 
  * Step 1: Click the "File" menu then "New File" and choose "R Markdown".
 
- * Step 2: In the "From Template" tab, choose one of the built-in templates.
+ * Step 2: In the "From Template" tab, choose the `xlsform2word` one.
+
+
+![template_img](https://raw.githubusercontent.com/Edouard-Legoupil/XlsFormPrettyPrint/master/inst/template.png) 
+ 
 
 You will then just need to fill in the [YAML parameters](https://rmarkdown.rstudio.com/lesson-6.html):
 

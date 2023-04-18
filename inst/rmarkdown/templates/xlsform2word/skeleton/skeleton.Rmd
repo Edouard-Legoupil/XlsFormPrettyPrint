@@ -54,17 +54,17 @@ This document was automatically generated from the encoded version of the questi
 p <- XlsFormPrettyPrint::interview_duration(xlsformpath, 
                                        params$label_language,
   # wpm  word per minute - an average 180 word per minute (per default) required to read loudly the text
-  wpm  = params$wpm, 
+  wpm  = as.integer(params$wpm),
 # maxmodalities if more than 7 potential answers for a select question (per default)- then we assume that those modalities will not be read by the enumerator - but rather selected based on an open answer - and not be accounted for the modalities duration estimation
-  maxmodalities = params$maxmodalities , 
+  maxmodalities = as.integer(params$maxmodalities) ,
 # resptimeclose  an average 4 seconds (per default) for respondent to reply for closed questions
-  resptimeclose  = params$resptimeclose,
-# resptimecondopen an average of  7 seconds (per default) to reply to conditional text question (accounting for question type of "other, please specify"). 
-  resptimecondopen = params$resptimecondopen,
-# resptimeopen an average of  10 seconds (per default) to reply to open text question. 
-  resptimeopen = params$resptimeopen,
-# avrgrepeat In case of repeat questions, an average 3 repeat (per default) is accounted for. 
-  avrgrepeat = params$avrgrepeat )
+  resptimeclose  = as.integer(params$resptimeclose),
+# resptimecondopen an average of  7 seconds (per default) to reply to conditional text question (accounting for question type of "other, please specify").
+  resptimecondopen = as.integer(params$resptimecondopen),
+# resptimeopen an average of  10 seconds (per default) to reply to open text question.
+  resptimeopen = as.integer(params$resptimeopen),
+# avrgrepeat In case of repeat questions, an average 3 repeat (per default) is accounted for.
+  avrgrepeat = as.integer(params$avrgrepeat) )
 
 p[["plot"]]
 ```

@@ -1,4 +1,7 @@
 
+DEPRECATED -- See https://github.com/unhcr-americas/XlsFormUtil !! 
+
+
 # An `RMD` template to convert a survey questionnaire from a master `XlsForm` to a `Word` version for easy review
 
 When customizing and adjusting a household survey questionnaire during the design phase, it's often necessary to have one testing version (i.e. encoded in [xlsform](http://xlsform)) and a more legible version in word that can be then shared with non-technical experts for them to comment and review.
